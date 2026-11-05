@@ -1,0 +1,177 @@
+---
+// ProjectsSection.astro
+---
+
+<section id="proyectos" class="py-20 md:py-32 relative bg-[#F5EFE6]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="reveal max-w-3xl mx-auto text-center mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-semibold tracking-wide">
+        <span>Proyectos</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+        Trabajos que impulsan <br />
+        <span class="font-serif italic font-normal text-[#6C5441]">negocios reales.</span>
+      </h2>
+      <p class="text-[#655B53] text-base sm:text-lg max-w-2xl mx-auto">
+        Creamos soluciones web rápidas, claras y bien diseñadas. Conoce el trabajo que realizamos para nuestros clientes en Chile.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Project 1: RAMAS.CL (With Real Screenshot) -->
+      <div class="reveal delay-100 lg:col-span-8 bg-[#FAF6F0] rounded-[36px] border border-[#E7DDD1] shadow-xl overflow-hidden flex flex-col justify-between group">
+        
+        <!-- Real Screenshot Container with Browser Frame -->
+        <div class="bg-[#1C1613] p-4 sm:p-6 border-b border-[#E8DED2]">
+          
+          <!-- Mock Browser Chrome Bar -->
+          <div class="bg-[#2A231F] rounded-t-xl px-4 py-2.5 flex items-center justify-between border-b border-white/10 text-xs">
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-[#EF4444]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#F59E0B]"></div>
+              <div class="w-3 h-3 rounded-full bg-[#10B981]"></div>
+            </div>
+            
+            <!-- Real Website URL Bar -->
+            <a
+              href="https://www.ramas.cl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-3 py-1 rounded-md bg-[#1C1613] text-[#FAF8F5]/80 hover:text-white text-[11px] font-mono border border-white/10 transition-colors"
+            >
+              <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span>https://www.ramas.cl/</span>
+              <svg class="w-3 h-3 text-[#A99889]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+
+            <span class="text-[10px] text-emerald-400 font-medium hidden sm:inline">En línea</span>
+          </div>
+
+          <!-- Real Screenshot Image -->
+          <div class="relative overflow-hidden rounded-b-xl bg-black aspect-[16/10] sm:aspect-[16/9]">
+            <img
+              src="/images/ramas.png"
+              alt="Captura real del sitio web ramas.cl desarrollado por DomiStudio"
+              class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-b-xl pointer-events-none"></div>
+          </div>
+
+        </div>
+
+        <!-- Project Details -->
+        <div class="p-6 sm:p-8 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider text-[#8E735B]">
+                Desarrollo Web &bull; Vending Corporativo
+              </span>
+              <h3 class="text-2xl font-bold text-[#1C1613] mt-0.5">
+                RAMAS &bull; Máquinas Expendedoras para Empresas
+              </h3>
+            </div>
+            
+            <span class="px-3 py-1 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs font-semibold">
+              Chile
+            </span>
+          </div>
+
+          <p class="text-[#655B53] text-sm sm:text-base leading-relaxed">
+            Diseñamos y desarrollamos el sitio web oficial para <strong>RAMAS</strong> (<a href="https://www.ramas.cl/" target="_blank" rel="noopener noreferrer" class="text-[#1C1613] underline font-medium hover:text-[#8E735B]">ramas.cl</a>), empresa chilena que transforma las pausas laborales con máquinas expendedoras modernas de snacks y bebidas para oficinas y centros comerciales. Creado con tecnología de última generación para lograr una carga casi instantánea, catálogo interactivo y navegación móvil óptima.
+          </p>
+
+          <!-- Badges & Action Link -->
+          <div class="pt-4 border-t border-[#E8DED2] flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-2 text-xs font-medium text-[#5D5047]">
+              <span class="px-2.5 py-1 rounded-md bg-[#F5EFE6] border border-[#E8DED2]">Carga instantánea</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#F5EFE6] border border-[#E8DED2]">Diseño móvil</span>
+              <span class="px-2.5 py-1 rounded-md bg-[#F5EFE6] border border-[#E8DED2]">Catálogo de productos</span>
+            </div>
+
+            <a
+              href="https://www.ramas.cl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all shadow-sm hover:scale-105"
+            >
+              <span>Visitar ramas.cl</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Side Card: Clean prompt leading down to Contact -->
+      <div class="reveal delay-200 lg:col-span-4 bg-[#FAF6F0] rounded-[36px] p-7 sm:p-9 border border-[#E7DDD1] shadow-xl flex flex-col justify-between space-y-6">
+        
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-[#1C1613] text-[#FAF8F5] flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m18 16 4-4-4-4"/>
+              <path d="m6 8-4 4 4 4"/>
+              <path d="m14.5 4-5 16"/>
+            </svg>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#1C1613] tracking-tight leading-snug">
+            ¿El próximo proyecto? <br />
+            <span class="font-serif italic font-normal text-[#6C5441]">Puede ser el tuyo.</span>
+          </h3>
+
+          <p class="text-sm text-[#655B53] leading-relaxed">
+            Ya sea que necesites lanzar una web corporativa, una landing page para captar clientes o renovar la imagen de tu negocio, construimos tu plataforma con atención personalizada.
+          </p>
+
+          <div class="space-y-2.5 pt-2 text-xs text-[#4A3E36]">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Propuesta clara y sin compromisos</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Entrega rápida y diseño a medida</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Acompañamiento y soporte continuo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clean Action Link to Contact Section -->
+        <div class="pt-6 border-t border-[#E8DED2]">
+          <a
+            href="#contacto"
+            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-sm font-medium hover:bg-[#342A24] transition-all shadow-sm"
+          >
+            <span>Ver opciones de contacto</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+// ProcessSection.astro
+const steps = [
+  {
+    number: "01",
+    title: "Conversación & Requerimientos",
+    description: "Nos reunimos o conversamos por WhatsApp para conocer tu negocio, qué quieres transmitir y cuáles son las secciones clave que necesitas."
+  },
+  {
+    number: "02",
+    title: "Propuesta Visual",
+    description: "Diseñamos el estilo visual, colores y distribución para que veas exactamente cómo lucirá tu página antes de construirla."
+  },
+  {
+    number: "03",
+    title: "Desarrollo & Optimización",
+    description: "Programamos tu web cuidando que sea rápida, segura y sumamente cómoda de navegar desde teléfonos móviles."
+  },
+  {
+    number: "04",
+    title: "Lanzamiento & Acompañamiento",
+    description: "Dejamos tu sitio funcionando con su dominio (.cl), te explicamos cómo funciona y seguimos atentos a cualquier soporte posterior."
+  }
+];
+---
+
+<section id="proceso" class="py-20 md:py-32 relative bg-[#FAF6F0]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="reveal max-w-3xl mx-auto text-center mb-16 sm:mb-20 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-semibold tracking-wide">
+        <span>Cómo Trabajamos</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+        Un proceso ordenado y transparente, <br />
+        <span class="font-serif italic font-normal text-[#6C5441]">de principio a fin.</span>
+      </h2>
+
+      <p class="text-[#655B53] text-base sm:text-lg max-w-2xl mx-auto">
+        Trabajamos con etapas claras para que siempre sepas en qué estado está tu proyecto y puedas opinar en cada paso.
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step, i) => (
+        <div class={`reveal delay-${(i + 1) * 100} relative bg-[#F5EFE6] rounded-[32px] p-7 border border-[#E8DED2] flex flex-col justify-between group hover:bg-[#FAF8F5] transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-3xl font-extrabold font-mono text-[#8E735B]/70 group-hover:text-[#1C1613] transition-colors">
+                {step.number}
+              </span>
+              <span class="w-8 h-8 rounded-full bg-[#E5DACE] text-[#2C241E] flex items-center justify-center text-xs font-bold">
+                {i + 1}
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-[#1C1613] tracking-tight mb-3">
+              {step.title}
+            </h3>
+
+            <p class="text-sm text-[#655B53] leading-relaxed font-normal">
+              {step.description}
+            </p>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-[#E8DED2]/60 flex items-center gap-2 text-xs text-[#8E735B]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1C1613]"></span>
+            <span>Etapa clave</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

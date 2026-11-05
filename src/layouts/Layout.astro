@@ -1,0 +1,63 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "DomiStudio | Diseño Web, Desarrollo y Soporte Digital en Chile",
+  description = "Creamos experiencias digitales que transforman negocios: diseño web moderno, desarrollo a medida de alto rendimiento y soporte continuo en domistudio.cl",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Forzar siempre Scroll To Top al recargar la página -->
+    <script is:inline>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+
+      window.addEventListener('beforeunload', function () {
+        window.scrollTo(0, 0);
+      });
+
+      window.addEventListener('load', function () {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      });
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="diseño web chile, desarrollo web santiago, domistudio, domistudio cl, astro web, landing page profesional, diseño ui ux, soporte web" />
+    <meta name="author" content="DomiStudio" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://domistudio.cl/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://domistudio.cl/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="bg-[#F5EFE6] text-[#1C1613] antialiased selection:bg-[#1C1613] selection:text-[#FAF8F5] min-h-screen flex flex-col overflow-x-hidden">
+    <slot />
+  </body>
+</html>

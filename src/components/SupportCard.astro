@@ -1,0 +1,167 @@
+---
+// SupportCard.astro
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`relative bg-[#FAF6F0] rounded-[36px] p-7 sm:p-9 border border-[#E7DDD1] shadow-[0_20px_50px_-20px_rgba(45,32,24,0.07)] overflow-hidden flex flex-col justify-between group transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(45,32,24,0.14)] hover:-translate-y-1.5 ${className}`}>
+
+  <!-- Dark Chocolate Organic Blob in Background -->
+  <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-[#1F1814] rounded-[55%_45%_65%_35%/45%_55%_35%_65%] pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6"></div>
+  <div class="absolute -top-12 -right-12 w-48 h-48 bg-[#E9DCD0] rounded-full blur-xl opacity-60 pointer-events-none"></div>
+
+  <!-- Top Content -->
+  <div class="relative z-10">
+    <!-- Pill Badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-medium tracking-wide shadow-sm">
+      <!-- Headphones icon -->
+      <svg class="w-3.5 h-3.5 text-[#2C241E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+      </svg>
+      <span>Soporte</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-3xl sm:text-[34px] font-bold text-[#1C1613] tracking-tight leading-[1.15] mt-6">
+      Acompañamiento <br />
+      en cada etapa
+    </h3>
+
+    <!-- Description -->
+    <p class="text-[#655B53] text-sm sm:text-[15px] leading-relaxed mt-4 font-normal max-w-xs">
+      Estamos contigo después del lanzamiento, con mantenimiento, actualizaciones y soporte continuo.
+    </p>
+
+    <!-- Button -->
+    <div class="mt-6">
+      <a
+        href="#contacto"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all duration-300 shadow-sm hover:gap-3 group/btn"
+      >
+        <span>Ver más</span>
+        <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Visual Mockup Area: Matte Studio Headset + Floating "Tu sitio siempre en línea" Card -->
+  <div class="relative mt-8 sm:mt-10 z-10 pt-2 flex items-center justify-between">
+    
+    <!-- Floating accent sparks (two curved black dashes) on the left of headset -->
+    <div class="absolute left-1 sm:left-2 top-1/3 flex flex-col gap-1.5 z-20 pointer-events-none transition-transform duration-500 group-hover:-translate-y-1">
+      <div class="w-1.5 h-4 bg-[#1C1613] rounded-full rotate-[-25deg]"></div>
+      <div class="w-1.5 h-3 bg-[#1C1613] rounded-full rotate-[15deg] ml-2"></div>
+    </div>
+
+    <!-- Center/Left Realistic Matte Beige Headphones SVG Illustration -->
+    <div class="w-[58%] sm:w-[60%] relative transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
+      <svg class="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)]" viewBox="0 0 300 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="headbandGrad" x1="50" y1="20" x2="250" y2="120" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#EBE3D7" />
+            <stop offset="50%" stop-color="#DDCFC0" />
+            <stop offset="100%" stop-color="#C5B5A3" />
+          </linearGradient>
+          <linearGradient id="cupGradLeft" x1="70" y1="120" x2="130" y2="210" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FAF5EE" />
+            <stop offset="50%" stop-color="#DFD1C2" />
+            <stop offset="100%" stop-color="#BAA794" />
+          </linearGradient>
+          <linearGradient id="cupGradRight" x1="170" y1="100" x2="230" y2="190" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FAF5EE" />
+            <stop offset="50%" stop-color="#DFD1C2" />
+            <stop offset="100%" stop-color="#BAA794" />
+          </linearGradient>
+        </defs>
+
+        <!-- Headband Arc -->
+        <path d="M75 145 C65 60 215 40 225 130" stroke="url(#headbandGrad)" stroke-width="26" stroke-linecap="round" fill="none" />
+        <path d="M85 140 C80 75 205 60 215 130" stroke="#F6F0E7" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.6" />
+
+        <!-- Left Ear Arm & Joint -->
+        <rect x="72" y="125" width="12" height="30" rx="6" fill="#C5B5A3" />
+
+        <!-- Left Ear Cushion (Angled) -->
+        <ellipse cx="88" cy="175" rx="34" ry="46" fill="url(#cupGradLeft)" transform="rotate(-15 88 175)" />
+        <ellipse cx="86" cy="175" rx="24" ry="34" fill="#C5B5A3" transform="rotate(-15 86 175)" opacity="0.4" />
+        <ellipse cx="84" cy="175" rx="16" ry="24" fill="#6A5B4F" transform="rotate(-15 84 175)" opacity="0.25" />
+
+        <!-- Right Ear Cushion (Perspective Background) -->
+        <ellipse cx="205" cy="155" rx="28" ry="40" fill="url(#cupGradRight)" transform="rotate(15 205 155)" />
+
+        <!-- Microphone Boom Arm -->
+        <path d="M78 185 C60 210 65 240 100 242" stroke="#E2D4C5" stroke-width="6" stroke-linecap="round" fill="none" />
+        <!-- Microphone Capsule with foam tip -->
+        <rect x="98" y="235" width="22" height="14" rx="7" fill="#F5EFE6" stroke="#C5B5A3" stroke-width="2" />
+      </svg>
+    </div>
+
+    <!-- Floating "Tu sitio siempre en línea" Card (Right) -->
+    <div class="w-[48%] sm:w-[46%] -ml-4 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-3.5 shadow-[0_12px_30px_rgba(0,0,0,0.14)] border border-white/80 transition-transform duration-500 group-hover:scale-105 group-hover:translate-x-1">
+      <div class="flex items-center gap-2.5">
+        <!-- Black circle with checkmark -->
+        <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1C1613] text-[#FAF8F5] flex items-center justify-center shrink-0 shadow-sm">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-xs sm:text-sm font-bold text-[#1C1613] leading-tight">
+            Tu sitio
+          </p>
+          <p class="text-[10px] sm:text-[11px] text-[#655B53] font-normal leading-tight">
+            siempre en línea
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom 3 Pillars (Respuesta rápida | Soluciones confiables | Tu proyecto siempre en foco) -->
+  <div class="relative z-10 mt-8 pt-5 border-t border-[#E8DED2]/80 grid grid-cols-3 gap-2 text-center">
+    
+    <!-- Item 1: Respuesta rápida -->
+    <div class="flex flex-col items-center justify-start space-y-1.5 px-1 border-r border-[#E0D4C5]/70">
+      <!-- Lightning bolt icon -->
+      <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      <span class="text-[11px] sm:text-xs font-semibold text-[#1C1613] leading-tight">
+        Respuesta rápida
+      </span>
+    </div>
+
+    <!-- Item 2: Soluciones confiables -->
+    <div class="flex flex-col items-center justify-start space-y-1.5 px-1 border-r border-[#E0D4C5]/70">
+      <!-- Shield check icon -->
+      <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+      <span class="text-[11px] sm:text-xs font-semibold text-[#1C1613] leading-tight">
+        Soluciones confiables
+      </span>
+    </div>
+
+    <!-- Item 3: Tu proyecto siempre en foco -->
+    <div class="flex flex-col items-center justify-start space-y-1.5 px-1">
+      <!-- Chart trending up icon -->
+      <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+        <polyline points="16 7 22 7 22 13"/>
+      </svg>
+      <span class="text-[11px] sm:text-xs font-semibold text-[#1C1613] leading-tight">
+        Tu proyecto siempre en foco
+      </span>
+    </div>
+
+  </div>
+
+</div>

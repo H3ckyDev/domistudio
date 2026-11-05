@@ -1,0 +1,251 @@
+---
+// index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PillarsSection from '../components/PillarsSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const phone1 = "+56 9 9287 0198";
+const phone1Clean = "56992870198";
+const phone2 = "+56 9 5898 6091";
+const phone2Clean = "56958986091";
+---
+
+<Layout
+  title="DomiStudio | Diseño Web, Desarrollo y Soporte en Chile (domistudio.cl)"
+  description="DomiStudio crea experiencias digitales a medida: diseño web moderno, desarrollo veloz y soporte continuo para empresas y marcas en Chile."
+>
+  <Header />
+
+  <main class="relative overflow-hidden">
+    <!-- Hero Section -->
+    <Hero />
+
+    <!-- 3 Main Pillars Section (Exact representation of the 3 cards in the image) -->
+    <PillarsSection />
+
+    <!-- Projects Section: RAMAS (ramas.cl) with Real Screenshot -->
+    <ProjectsSection />
+
+    <!-- Why Choose DomiStudio & Philosophy -->
+    <AboutSection />
+
+    <!-- 4-Step Methodology -->
+    <ProcessSection />
+
+    <!-- Client Testimonial / RAMAS Feedback -->
+    <TestimonialsSection />
+
+    <!-- Frequently Asked Questions -->
+    <FAQSection />
+
+    <!-- Final Call to Action (The Official Contact Hub) -->
+    <CTASection />
+  </main>
+
+  <Footer />
+
+  <!-- Ultra-Llamativo Floating WhatsApp Widget with Dynamic "Hablemos" Speech Bubble Alerts -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    
+    <!-- Dynamic Speech Bubble Alert ("Hablemos") -->
+    <div
+      id="whatsapp-alert"
+      class="opacity-0 translate-x-4 pointer-events-none transition-all duration-500 cursor-pointer flex items-center gap-2.5 bg-[#FAF6F0] text-[#1C1613] px-4 py-2.5 rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.18)] border border-[#E7DDD1] text-xs sm:text-sm font-semibold select-none hover:bg-[#EAE0D3] relative group/alert"
+    >
+      <span class="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse shrink-0"></span>
+      <span id="alert-text" class="whitespace-nowrap font-medium text-[#1C1613]">
+        ¿Hablemos de tu web? 👋
+      </span>
+      <!-- Caret pointing right to WhatsApp button -->
+      <span class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#FAF6F0] border-t border-r border-[#E7DDD1] rotate-45 group-hover/alert:bg-[#EAE0D3]"></span>
+    </div>
+
+    <!-- Main Container & Popover -->
+    <div class="relative group/float">
+      
+      <!-- Popover Menu with Both Numbers -->
+      <div
+        id="whatsapp-popover"
+        class="absolute bottom-16 right-0 mb-3 w-72 bg-[#FAF6F0] rounded-3xl p-4 shadow-2xl border border-[#E7DDD1] opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2"
+      >
+        <div class="flex items-center gap-3 pb-3 border-b border-[#E8DED2]">
+          <div class="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-sm">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.19.014.305-.058.115-.087.187-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-[#1C1613]">¿Hablamos por WhatsApp?</h4>
+            <p class="text-[10px] text-[#7D736A]">Elige cualquiera de nuestras 2 líneas</p>
+          </div>
+        </div>
+
+        <div class="pt-3 space-y-2">
+          <a
+            href={`https://wa.me/${phone1Clean}?text=Hola%20DomiStudio,%20quiero%20hacer%20una%20consulta%20por%20mi%20web`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#EAE0D3] transition-colors group/item"
+          >
+            <div>
+              <p class="text-xs font-bold text-[#1C1613]">{phone1}</p>
+              <p class="text-[10px] text-emerald-600 font-medium">Línea directa 1</p>
+            </div>
+            <span class="text-xs text-[#8E735B] group-hover/item:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+
+          <a
+            href={`https://wa.me/${phone2Clean}?text=Hola%20DomiStudio,%20quiero%20hacer%20una%20consulta%20por%20mi%20web`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#EAE0D3] transition-colors group/item"
+          >
+            <div>
+              <p class="text-xs font-bold text-[#1C1613]">{phone2}</p>
+              <p class="text-[10px] text-emerald-600 font-medium">Línea directa 2</p>
+            </div>
+            <span class="text-xs text-[#8E735B] group-hover/item:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Glowing Floating Button -->
+      <button
+        type="button"
+        id="float-btn"
+        aria-label="Abrir opciones de WhatsApp"
+        class="relative w-15 h-15 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-[0_10px_35px_rgba(37,211,102,0.5)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white/60 animate-float-gentle group"
+      >
+        <!-- Pulsing radar rings -->
+        <span class="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping opacity-75 pointer-events-none"></span>
+        <span class="absolute -inset-2.5 rounded-full bg-[#25D366]/20 animate-pulse opacity-50 pointer-events-none"></span>
+
+        <!-- WhatsApp Icon -->
+        <svg class="w-8 h-8 text-white relative z-10 transition-transform duration-300 group-hover:rotate-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.19.014.305-.058.115-.087.187-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+        </svg>
+      </button>
+
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  // High-performance IntersectionObserver Scroll Transitions & Floating Alert System
+  function initPage() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px'
+      }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    // Interactive 3D Card Tilt Effect on mouse movement
+    const cards = document.querySelectorAll('#servicios .group');
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      cards.forEach((card) => {
+        const el = card as HTMLElement;
+        el.addEventListener('mousemove', (e: MouseEvent) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -5;
+          const rotateY = ((x - centerX) / centerX) * 5;
+          
+          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+
+    // Toggle WhatsApp popover
+    const floatBtn = document.getElementById('float-btn');
+    const popover = document.getElementById('whatsapp-popover');
+    const alertBox = document.getElementById('whatsapp-alert');
+    const alertText = document.getElementById('alert-text');
+
+    function togglePopover(e: Event) {
+      e.stopPropagation();
+      popover?.classList.toggle('opacity-0');
+      popover?.classList.toggle('pointer-events-none');
+      popover?.classList.toggle('translate-y-2');
+    }
+
+    floatBtn?.addEventListener('click', togglePopover);
+    alertBox?.addEventListener('click', togglePopover);
+
+    document.addEventListener('click', () => {
+      popover?.classList.add('opacity-0');
+      popover?.classList.add('pointer-events-none');
+      popover?.classList.add('translate-y-2');
+    });
+
+    // Dynamic "Hablemos" Speech Bubble Alerts
+    const alertMessages = [
+      '¡Hola! ¿Hablemos de tu web? 👋',
+      '¿Tienes una idea en mente? Hablemos ✨',
+      'Cotiza tu página web aquí 🚀',
+      'Escríbenos directamente 💬',
+      'Hablemos por WhatsApp 👋'
+    ];
+
+    let msgIndex = 0;
+
+    function showAlert() {
+      if (!alertBox || !alertText) return;
+
+      alertText.textContent = alertMessages[msgIndex];
+      msgIndex = (msgIndex + 1) % alertMessages.length;
+
+      // Show alert
+      alertBox.classList.remove('opacity-0', 'translate-x-4', 'pointer-events-none');
+      alertBox.classList.add('opacity-100', 'translate-x-0');
+
+      // Hide after 4 seconds
+      setTimeout(() => {
+        alertBox.classList.remove('opacity-100', 'translate-x-0');
+        alertBox.classList.add('opacity-0', 'translate-x-4', 'pointer-events-none');
+      }, 4200);
+    }
+
+    // First alert pops up 2 seconds after arrival, then every 9 seconds
+    setTimeout(() => {
+      showAlert();
+      setInterval(showAlert, 9000);
+    }, 2000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPage);
+  } else {
+    initPage();
+  }
+</script>

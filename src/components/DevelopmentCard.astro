@@ -1,0 +1,153 @@
+---
+// DevelopmentCard.astro
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`relative bg-[#FAF6F0] rounded-[36px] p-7 sm:p-9 border border-[#E7DDD1] shadow-[0_20px_50px_-20px_rgba(45,32,24,0.07)] overflow-hidden flex flex-col justify-between group transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(45,32,24,0.14)] hover:-translate-y-1.5 ${className}`}>
+
+  <!-- Organic Dark Chocolate Blobs (Exact shape positioning as in reference) -->
+  <!-- Top Right Organic Blob -->
+  <div class="absolute -top-10 -right-8 w-44 h-48 bg-[#1F1814] rounded-[50%_50%_70%_30%/30%_60%_40%_70%] pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6"></div>
+
+  <!-- Bottom Dark Chocolate Blob -->
+  <div class="absolute -bottom-16 -right-10 w-80 h-72 bg-[#1F1814] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-3"></div>
+
+  <!-- Top Content -->
+  <div class="relative z-10">
+    <!-- Pill Badge (Dark variant) -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium tracking-wide shadow-sm">
+      <!-- Code </> icon -->
+      <svg class="w-3.5 h-3.5 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m16 18 6-6-6-6"/>
+        <path d="m8 6-6 6 6 6"/>
+      </svg>
+      <span>Desarrollo</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-3xl sm:text-[34px] font-bold text-[#1C1613] tracking-tight leading-[1.15] mt-6">
+      Tecnología <br />
+      para hacer crecer tu <br class="hidden sm:inline" />
+      negocio
+    </h3>
+
+    <!-- Description -->
+    <p class="text-[#655B53] text-sm sm:text-[15px] leading-relaxed mt-4 font-normal max-w-xs">
+      Desarrollamos sitios web rápidos, seguros y escalables, con las mejores prácticas del mercado.
+    </p>
+
+    <!-- Button -->
+    <div class="mt-6">
+      <a
+        href="#contacto"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all duration-300 shadow-sm hover:gap-3 group/btn"
+      >
+        <span>Ver más</span>
+        <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Visual Mockup Area: Code Editor + Tech Stack Badges + 3D </> Pill -->
+  <div class="relative mt-8 sm:mt-12 z-10 pt-4 flex items-center justify-between min-h-[190px]">
+    
+    <!-- Floating Tech Stack Icons Column (Left) -->
+    <div class="flex flex-col gap-2.5 z-20 transition-transform duration-500 group-hover:-translate-x-1">
+      
+      <!-- React Icon Badge -->
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-white/60 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+        <svg class="w-6 h-6 text-[#00D8FF] animate-[spin_12s_linear_infinite]" viewBox="-11.5 -10.23174 23 20.46348">
+          <circle cx="0" cy="0" r="2.05" fill="#00D8FF"/>
+          <g stroke="#00D8FF" stroke-width="1" fill="none">
+            <ellipse rx="11" ry="4.2"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+            <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- JS Icon Badge -->
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#1C1613] shadow-[0_8px_20px_rgba(0,0,0,0.15)] border border-neutral-700/60 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+        <span class="text-xs font-black bg-[#F7DF1E] text-black px-1.5 py-0.5 rounded leading-none">
+          JS
+        </span>
+      </div>
+
+      <!-- Database Icon Badge -->
+      <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/95 backdrop-blur-sm shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-white/60 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+        <svg class="w-5 h-5 text-[#2C241E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3"/>
+          <path d="M3 5V19A9 3 0 0 0 21 19V5"/>
+          <path d="M3 12A9 3 0 0 0 21 12"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Center/Right Code Editor Terminal Window -->
+    <div class="w-[74%] sm:w-[78%] bg-[#15161B]/95 backdrop-blur-md rounded-2xl p-3.5 shadow-2xl border border-neutral-800/80 relative transition-transform duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1">
+      
+      <!-- Window Controls (Red, Yellow, Green dots) -->
+      <div class="flex items-center gap-1.5 pb-2.5 border-b border-neutral-800/60">
+        <div class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#10B981]"></div>
+      </div>
+
+      <!-- Code Snippet Area -->
+      <div class="pt-3 font-mono text-[11px] sm:text-xs leading-relaxed tracking-tight">
+        <div class="flex items-start text-neutral-500">
+          <span class="w-5 select-none opacity-40 text-[10px]">11</span>
+        </div>
+        <div class="flex items-start">
+          <span class="w-5 select-none text-neutral-600 text-[10px]">12</span>
+          <p class="text-neutral-200">
+            <span class="text-pink-400 font-semibold">const</span> <span class="text-amber-300">createBetter</span> = () =&gt; &#123;
+          </p>
+        </div>
+        <div class="flex items-start">
+          <span class="w-5 select-none text-neutral-600 text-[10px]">13</span>
+          <p class="text-neutral-200 pl-3">
+            <span class="text-pink-400">return</span> (
+          </p>
+        </div>
+        <div class="flex items-start">
+          <span class="w-5 select-none text-neutral-600 text-[10px]">14</span>
+          <p class="pl-6 text-cyan-300 font-semibold">
+            &lt;<span class="text-cyan-200">DomiStudio</span> /&gt;
+          </p>
+        </div>
+        <div class="flex items-start">
+          <span class="w-5 select-none text-neutral-600 text-[10px]">15</span>
+          <p class="text-neutral-200 pl-3">
+            );
+          </p>
+        </div>
+        <div class="flex items-start">
+          <span class="w-5 select-none text-neutral-600 text-[10px]">16</span>
+          <p class="text-neutral-200">
+            &#125;;
+          </p>
+        </div>
+        <div class="flex items-start text-neutral-500">
+          <span class="w-5 select-none opacity-40 text-[10px]">17</span>
+        </div>
+      </div>
+
+      <!-- Floating 3D Badge on Top-Right of the Editor (White rounded cube with </>) -->
+      <div class="absolute -top-4 -right-2 sm:-right-4 bg-white/95 rounded-2xl p-2.5 sm:p-3 shadow-[0_12px_28px_rgba(0,0,0,0.25)] border border-neutral-100 flex items-center justify-center transform group-hover:rotate-6 transition-all duration-500 animate-float-gentle">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 17 5-5-5-5"/>
+          <path d="m9 7-5 5 5 5"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,98 @@
+---
+// Header.astro
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#F5EFE6]/85 border-b border-[#E8DED2]/70" id="main-header">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="#" class="group flex items-center py-1">
+      <img
+        src="/public/images/logo.png"
+        alt="DomiStudio - domistudio.cl"
+        class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#5D544C]">
+      <a href="#servicios" class="hover:text-[#1C1613] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1C1613] hover:after:w-full after:transition-all after:duration-300">
+        Servicios
+      </a>
+      <a href="#proyectos" class="hover:text-[#1C1613] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1C1613] hover:after:w-full after:transition-all after:duration-300">
+        Proyectos
+      </a>
+      <a href="#proceso" class="hover:text-[#1C1613] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1C1613] hover:after:w-full after:transition-all after:duration-300">
+        Cómo trabajamos
+      </a>
+      <a href="#nosotros" class="hover:text-[#1C1613] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1C1613] hover:after:w-full after:transition-all after:duration-300">
+        Nosotros
+      </a>
+      <a href="#contacto" class="hover:text-[#1C1613] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#1C1613] hover:after:w-full after:transition-all after:duration-300">
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Header Single Action: Smooth scroll to Contact section -->
+    <div class="hidden sm:flex items-center">
+      <a
+        href="#contacto"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-sm font-medium hover:bg-[#332A24] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02]"
+      >
+        <span>Contacto</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      class="md:hidden p-2 rounded-xl text-[#1C1613] hover:bg-[#EAE0D3] transition-colors"
+      aria-label="Abrir menú"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#FAF8F5] border-b border-[#E8DED2] px-6 py-6 space-y-4 shadow-xl">
+    <a href="#servicios" class="block text-base font-medium text-[#1C1613] hover:text-[#8E735B] py-2 border-b border-[#EAE0D3]/50 mobile-link">Servicios</a>
+    <a href="#proyectos" class="block text-base font-medium text-[#1C1613] hover:text-[#8E735B] py-2 border-b border-[#EAE0D3]/50 mobile-link">Proyectos</a>
+    <a href="#proceso" class="block text-base font-medium text-[#1C1613] hover:text-[#8E735B] py-2 border-b border-[#EAE0D3]/50 mobile-link">Cómo trabajamos</a>
+    <a href="#nosotros" class="block text-base font-medium text-[#1C1613] hover:text-[#8E735B] py-2 border-b border-[#EAE0D3]/50 mobile-link">Nosotros</a>
+    <a href="#contacto" class="block text-base font-medium text-[#1C1613] hover:text-[#8E735B] py-2 border-b border-[#EAE0D3]/50 mobile-link">Contacto</a>
+    
+    <div class="pt-2">
+      <a
+        href="#contacto"
+        class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1C1613] text-[#FAF8F5] text-sm font-medium hover:bg-[#332A24] mobile-link"
+      >
+        <span>Ir a Contacto</span>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-link');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

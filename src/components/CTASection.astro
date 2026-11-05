@@ -1,0 +1,113 @@
+---
+// CTASection.astro
+const phone1 = "+56 9 9287 0198";
+const phone1Clean = "56992870198";
+const phone2 = "+56 9 5898 6091";
+const phone2Clean = "56958986091";
+---
+
+<section id="contacto" class="py-20 md:py-32 relative bg-[#FAF6F0] overflow-hidden">
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="reveal relative bg-[#1C1613] rounded-[40px] p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-white">
+      
+      <!-- Subtle organic curved background glows -->
+      <div class="absolute -top-20 -right-20 w-96 h-96 bg-[#342821] rounded-full blur-3xl pointer-events-none opacity-60"></div>
+      <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-[#2B2019] rounded-full blur-3xl pointer-events-none opacity-60"></div>
+      
+      <div class="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+        
+        <!-- Status indicator (Authentic, natural) -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#E5DACE] text-xs font-semibold tracking-wider uppercase border border-white/10">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Atención Directa &bull; Santiago, Chile</span>
+        </div>
+
+        <!-- Headline -->
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-[#FAF8F5]">
+          Construyamos juntos un sitio web <br class="hidden sm:inline" />
+          <span class="font-serif italic font-normal text-[#DDCFC0]">que destaque tu marca.</span>
+        </h2>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-xl text-[#C7B49E] max-w-2xl mx-auto font-normal leading-relaxed">
+          Escríbenos directamente a cualquiera de nuestros dos números de contacto y conversemos sobre lo que buscas para tu página web.
+        </p>
+
+        <!-- The Two Phone / WhatsApp Contact Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto pt-2">
+          
+          <!-- Contact 1 -->
+          <a
+            href={`https://wa.me/${phone1Clean}?text=Hola%20DomiStudio,%20quiero%20cotizar%20un%20proyecto%20web`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all duration-300 group"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.19.014.305-.058.115-.087.187-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">{phone1}</p>
+                <p class="text-xs text-[#C7B49E]">WhatsApp Línea 1</p>
+              </div>
+            </div>
+            <span class="text-xs text-emerald-400 font-semibold group-hover:translate-x-1 transition-transform">
+              &rarr;
+            </span>
+          </a>
+
+          <!-- Contact 2 -->
+          <a
+            href={`https://wa.me/${phone2Clean}?text=Hola%20DomiStudio,%20quiero%20cotizar%20un%20proyecto%20web`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all duration-300 group"
+          >
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.19.014.305-.058.115-.087.187-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.174.231-.145.39-.087s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-white">{phone2}</p>
+                <p class="text-xs text-[#C7B49E]">WhatsApp Línea 2</p>
+              </div>
+            </div>
+            <span class="text-xs text-emerald-400 font-semibold group-hover:translate-x-1 transition-transform">
+              &rarr;
+            </span>
+          </a>
+
+        </div>
+
+        <!-- Additional direct email link -->
+        <div class="pt-4">
+          <a
+            href="mailto:contacto@domistudio.cl"
+            class="text-sm text-[#AF977E] hover:text-white transition-colors underline underline-offset-4"
+          >
+            O escríbenos a contacto@domistudio.cl
+          </a>
+        </div>
+
+        <!-- Chile info badge -->
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-[#AF977E]">
+          <span class="flex items-center gap-1.5">
+            <span>🇨🇱</span> domistudio.cl &bull; Chile
+          </span>
+          <span>&bull;</span>
+          <span>Diseño a medida</span>
+          <span>&bull;</span>
+          <span>Soporte continuo</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

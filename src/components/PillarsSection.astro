@@ -1,0 +1,51 @@
+---
+// PillarsSection.astro
+import DesignCard from './DesignCard.astro';
+import DevelopmentCard from './DevelopmentCard.astro';
+import SupportCard from './SupportCard.astro';
+---
+
+<section id="servicios" class="py-20 md:py-32 relative overflow-hidden bg-gradient-to-b from-[#F5EFE6] via-[#FAF6F0] to-[#F5EFE6]">
+  
+  <!-- Subtle decorative ambient accents -->
+  <div class="absolute top-10 left-1/4 w-96 h-96 bg-[#EADCCF]/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-[#E3D1BE]/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="reveal max-w-3xl mx-auto text-center mb-16 sm:mb-20 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-semibold tracking-wide">
+        <span>Nuestros Pilares</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+        Todo lo que tu proyecto digital necesita, <br class="hidden sm:inline" />
+        <span class="font-serif italic font-normal text-[#6C5441]">en un solo lugar.</span>
+      </h2>
+
+      <p class="text-[#655B53] text-base sm:text-lg max-w-2xl mx-auto">
+        Una solución integral pensada para potenciar tu presencia en internet: diseño visual moderno, desarrollo robusto y soporte continuo.
+      </p>
+    </div>
+
+    <!-- The 3 Cards Showcase (Exact Layout from Image) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <!-- Card 1: Diseño -->
+      <div class="reveal delay-100 h-full">
+        <DesignCard className="h-full min-h-[580px]" />
+      </div>
+
+      <!-- Card 2: Desarrollo -->
+      <div class="reveal delay-200 h-full">
+        <DevelopmentCard className="h-full min-h-[580px]" />
+      </div>
+
+      <!-- Card 3: Soporte -->
+      <div class="reveal delay-300 h-full">
+        <SupportCard className="h-full min-h-[580px]" />
+      </div>
+    </div>
+
+  </div>
+</section>

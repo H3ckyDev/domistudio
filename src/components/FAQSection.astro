@@ -1,0 +1,63 @@
+---
+// FAQSection.astro
+const faqs = [
+  {
+    q: "¿Cómo empezamos a trabajar en mi sitio web?",
+    a: "Lo más simple es escribirnos por WhatsApp a cualquiera de nuestros dos números (+56 9 9287 0198 o +56 9 5898 6091). Conversamos sobre tu negocio, qué secciones necesitas y te enviamos una propuesta clara con tiempos y costos."
+  },
+  {
+    q: "¿Cuánto tiempo toma tener el sitio listo y publicado?",
+    a: "Una landing page o sitio web estándar suele estar listo en un plazo aproximado de 1 a 2 semanas, dependiendo de si ya cuentas con los textos e imágenes o si debemos ayudarte a estructurarlos."
+  },
+  {
+    q: "¿El sitio web funciona bien en teléfonos celulares?",
+    a: "Completamente. Casi el 80% de las visitas en Chile se realizan desde teléfonos inteligentes, por lo que diseñamos y probamos exhaustivamente cada pantalla para que la experiencia sea intuitiva y veloz."
+  },
+  {
+    q: "¿Cómo se gestiona el dominio .cl?",
+    a: "Si ya tienes tu dominio registrado en NIC Chile, nosotros nos encargamos de conectarlo. Si aún no lo compras, te asesoramos paso a paso para que quede a tu nombre con total propiedad."
+  },
+  {
+    q: "¿Qué sucede después del lanzamiento si necesito cambios o ayuda?",
+    a: "Ese es justamente nuestro tercer pilar: Soporte. Seguimos en contacto directo contigo para asistirte ante cualquier consulta, actualización de información o ajuste que requieras en el tiempo."
+  }
+];
+---
+
+<section id="faq" class="py-20 md:py-32 relative bg-[#F5EFE6]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="reveal text-center mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-semibold tracking-wide">
+        <span>Preguntas Frecuentes</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+        Preguntas habituales, <br />
+        <span class="font-serif italic font-normal text-[#6C5441]">respuestas claras.</span>
+      </h2>
+    </div>
+
+    <!-- FAQ Accordion items -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class={`reveal delay-${(index + 1) * 100} group bg-[#FAF6F0] rounded-2xl border border-[#E7DDD1] p-6 transition-all duration-300 open:shadow-md [&_summary::-webkit-details-marker]:hidden`}>
+          <summary class="flex items-center justify-between cursor-pointer list-none select-none">
+            <h3 class="text-base sm:text-lg font-bold text-[#1C1613] pr-4 group-open:text-[#8E735B] transition-colors">
+              {faq.q}
+            </h3>
+            <span class="w-8 h-8 rounded-full bg-[#E5DACE] text-[#1C1613] flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-180">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-[#E8DED2]/80 text-sm sm:text-base text-[#655B53] leading-relaxed">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

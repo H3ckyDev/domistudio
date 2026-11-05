@@ -1,0 +1,163 @@
+---
+// Hero.astro
+const phone1Clean = "56992870198";
+---
+
+<section class="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+  <!-- Subtle organic background glows -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#EAE0D3]/60 via-[#E0D0BE]/40 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute top-20 right-10 w-96 h-96 bg-[#FAF4ED] rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+      
+      <!-- Main Headline with Live Handwriting Typewriter Effect -->
+      <h1 class="reveal delay-100 text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1C1613] tracking-tight leading-[1.18]">
+        Creamos experiencias digitales <br class="hidden sm:inline" />
+        <span class="relative inline-flex items-baseline justify-center -rotate-2 mx-1 sm:mx-2 my-1 min-h-[1.15em]">
+          <!-- Handwritten text span in Caveat font -->
+          <span
+            id="typewriter-text"
+            class="relative z-10 font-handwriting text-5xl sm:text-7xl lg:text-8xl font-bold text-[#8C4A28] tracking-wide select-none drop-shadow-sm px-1 min-w-[1ch] inline-block"
+          >que cautivan</span>
+
+          <!-- Handwritten Pen / Ink Cursor -->
+          <span
+            id="typewriter-cursor"
+            class="inline-block w-[3px] sm:w-[4px] h-[0.7em] bg-[#8C4A28] ml-1 rounded-full animate-pen-blink align-middle"
+          ></span>
+
+          <!-- Hand-drawn curved underline SVG -->
+          <svg
+            class="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-4 text-[#C9916F]/70 pointer-events-none -z-0 overflow-visible transition-all duration-200"
+            viewBox="0 0 200 16"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M3 11C45 4 110 3 197 12"
+              stroke="currentColor"
+              stroke-width="4.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <br class="hidden sm:inline" />
+        y hacen crecer tu negocio.
+      </h1>
+
+      <!-- Supporting description -->
+      <p class="reveal delay-200 text-lg sm:text-xl text-[#5D544C] max-w-2xl mx-auto leading-relaxed font-normal">
+        Diseño cuidado, tecnología moderna y acompañamiento en cada etapa. Desarrollamos sitios web pensados para conectar con tu audiencia y proyectar el verdadero valor de tu marca.
+      </p>
+
+      <!-- Action buttons -->
+      <div class="reveal delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a
+          href="#servicios"
+          class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#1C1613] text-[#FAF8F5] text-base font-medium hover:bg-[#342A24] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group"
+        >
+          <span>Conoce nuestros pilares</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+
+        <a
+          href="#proyectos"
+          class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FAF8F5] text-[#1C1613] border border-[#DDCFC0] text-base font-medium hover:bg-[#EAE0D3]/50 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+        >
+          <span>Ver proyectos</span>
+          <svg class="w-4 h-4 text-[#8E735B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17l9.2-9.2M17 17V7H7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Human, authentic value pillars -->
+      <div class="reveal delay-400 pt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left border-t border-[#E8DED2]/80 mt-12">
+        <div class="space-y-1">
+          <p class="text-base font-bold text-[#1C1613]">Diseño personalizado</p>
+          <p class="text-xs sm:text-sm text-[#7D736A]">Estructuras y estilos pensados para tu identidad de marca.</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-base font-bold text-[#1C1613]">Desarrollo optimizado</p>
+          <p class="text-xs sm:text-sm text-[#7D736A]">Sitios rápidos, estables y sin complicaciones técnicas.</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-base font-bold text-[#1C1613]">Atención directa</p>
+          <p class="text-xs sm:text-sm text-[#7D736A]">Contacto cercano y soporte continuo por WhatsApp.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Live Handwriting typewriter effect: writes -> pauses -> erases -> writes next phrase
+  (function initTypewriter() {
+    function startEffect() {
+      const textEl = document.getElementById('typewriter-text');
+      if (!textEl) return;
+
+      const phrases = [
+        'que cautivan',
+        'que inspiran',
+        'que venden más',
+        'que enamoran',
+        'que conectan',
+        'a tu medida'
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      // Clear text so user immediately sees the handwriting animation begin!
+      textEl.textContent = '';
+
+      function tick() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          // Erasing letter by letter
+          textEl.textContent = currentPhrase.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          // Writing letter by letter
+          textEl.textContent = currentPhrase.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        // Variable speed for realistic handwriting feel
+        let speed = isDeleting ? 45 : 85 + Math.floor(Math.random() * 35);
+
+        // When the whole phrase has been written out
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          speed = 2000; // Pause so the user can read the phrase
+          isDeleting = true;
+        } 
+        // When the phrase has been completely erased
+        else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          speed = 400; // Brief pause before writing the next phrase
+        }
+
+        setTimeout(tick, speed);
+      }
+
+      // Start writing after 400ms
+      setTimeout(tick, 400);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startEffect);
+    } else {
+      startEffect();
+    }
+  })();
+</script>

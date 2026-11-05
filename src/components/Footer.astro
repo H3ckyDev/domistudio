@@ -1,0 +1,120 @@
+---
+// Footer.astro
+const year = new Date().getFullYear();
+const phone1 = "+56 9 9287 0198";
+const phone1Clean = "56992870198";
+const phone2 = "+56 9 5898 6091";
+const phone2Clean = "56958986091";
+---
+
+<footer class="bg-[#16120F] text-[#FAF8F5] pt-16 pb-12 border-t border-[#2A201A]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-neutral-800">
+      
+      <!-- Brand column -->
+      <div class="lg:col-span-2 space-y-4">
+        <a href="#" class="inline-flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#FAF8F5] text-[#1C1613] flex items-center justify-center font-bold text-lg shadow-md">
+            <svg class="w-5 h-5 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 16 4-4-4-4"/>
+              <path d="m6 8-4 4 4 4"/>
+              <path d="m14.5 4-5 16"/>
+            </svg>
+          </div>
+          <span class="text-2xl font-bold tracking-tight text-[#FAF8F5]">
+            domistudio<span class="text-neutral-400 font-medium text-lg">.cl</span>
+          </span>
+        </a>
+
+        <p class="text-sm text-[#A99889] leading-relaxed max-w-sm font-normal">
+          Diseño web a medida, desarrollo de alta velocidad y soporte continuo en Chile. Creamos sitios claros, elegantes y enfocados en resultados.
+        </p>
+
+        <div class="pt-2 flex items-center gap-3 text-xs text-[#8E735B]">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#C7B49E]">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Santiago, Chile &bull; Atención directa
+          </span>
+        </div>
+      </div>
+
+      <!-- Links Column 1: Servicios -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold tracking-wider uppercase text-[#E5DACE]">Servicios</h4>
+        <ul class="space-y-2 text-sm text-[#A99889]">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Diseño Web UI / UX</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Desarrollo Web Moderno</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Landing Pages</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Tiendas &amp; Catálogos</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Soporte &amp; Mantenimiento</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2: Proyecto & Secciones -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold tracking-wider uppercase text-[#E5DACE]">Navegación</h4>
+        <ul class="space-y-2 text-sm text-[#A99889]">
+          <li><a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a></li>
+          <li><a href="#proceso" class="hover:text-white transition-colors">Cómo trabajamos</a></li>
+          <li><a href="#nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+          <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 3: Contacto con ambos números -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold tracking-wider uppercase text-[#E5DACE]">Contacto Directo</h4>
+        <ul class="space-y-2.5 text-sm text-[#A99889]">
+          <li>
+            <a
+              href={`https://wa.me/${phone1Clean}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors flex items-center gap-2"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>{phone1}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={`https://wa.me/${phone2Clean}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors flex items-center gap-2"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>{phone2}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:contacto@domistudio.cl"
+              class="hover:text-white transition-colors flex items-center gap-2 pt-1"
+            >
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>contacto@domistudio.cl</span>
+            </a>
+          </li>
+          <li class="pt-2 text-xs text-[#8E735B]">
+            Santiago, Chile &bull; Horario 09:00 - 18:00
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#7A6C60] gap-4">
+      <p>&copy; {year} DomiStudio (domistudio.cl). Todos los derechos reservados.</p>
+      <div class="flex items-center gap-6">
+        <a href="#proyectos" class="hover:text-white transition-colors">Portafolio</a>
+        <a href="#contacto" class="hover:text-white transition-colors">Cotizar proyecto</a>
+      </div>
+    </div>
+  </div>
+</footer>

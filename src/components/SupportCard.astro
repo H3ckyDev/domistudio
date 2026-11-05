@@ -9,8 +9,8 @@ const { className = "" } = Astro.props;
 
 <div class={`relative bg-[#FAF6F0] rounded-[36px] p-7 sm:p-9 border border-[#E7DDD1] shadow-[0_20px_50px_-20px_rgba(45,32,24,0.07)] overflow-hidden flex flex-col justify-between group transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(45,32,24,0.14)] hover:-translate-y-1.5 ${className}`}>
 
-  <!-- Dark Chocolate Organic Blob in Background -->
-  <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-[#1F1814] rounded-[55%_45%_65%_35%/45%_55%_35%_65%] pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6"></div>
+  <!-- Dark Chocolate Organic Blob in Background (Centered behind the headphones and badge, never covering the bottom text) -->
+  <div class="absolute top-[48%] -right-10 w-64 h-64 -translate-y-1/2 bg-[#1F1814] rounded-[55%_45%_65%_35%/45%_55%_35%_65%] pointer-events-none transition-transform duration-700 group-hover:scale-105 group-hover:rotate-6"></div>
   <div class="absolute -top-12 -right-12 w-48 h-48 bg-[#E9DCD0] rounded-full blur-xl opacity-60 pointer-events-none"></div>
 
   <!-- Top Content -->
@@ -125,7 +125,7 @@ const { className = "" } = Astro.props;
   </div>
 
   <!-- Bottom 3 Pillars (Respuesta rápida | Soluciones confiables | Tu proyecto siempre en foco) -->
-  <div class="relative z-10 mt-8 pt-5 border-t border-[#E8DED2]/80 grid grid-cols-3 gap-2 text-center">
+  <div class="relative z-20 mt-8 pt-5 border-t border-[#E8DED2]/80 grid grid-cols-3 gap-2 text-center bg-[#FAF6F0]">
     
     <!-- Item 1: Respuesta rápida -->
     <div class="flex flex-col items-center justify-start space-y-1.5 px-1 border-r border-[#E0D4C5]/70">

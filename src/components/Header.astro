@@ -5,13 +5,22 @@
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#F5EFE6]/85 border-b border-[#E8DED2]/70" id="main-header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href="#" class="group flex items-center py-1">
-      <img
-        src="/public/images/logo.png"
-        alt="DomiStudio - domistudio.cl"
-        class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-        loading="eager"
-      />
+    <a href="#" class="group flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-[#1C1613] text-[#FAF8F5] flex items-center justify-center font-bold text-lg shadow-md transition-transform duration-300 group-hover:scale-105">
+        <svg class="w-5 h-5 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m18 16 4-4-4-4"/>
+          <path d="m6 8-4 4 4 4"/>
+          <path d="m14.5 4-5 16"/>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-tight text-[#1C1613] group-hover:text-black transition-colors">
+          domistudio<span class="text-neutral-400 font-medium text-base">.cl</span>
+        </span>
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-[#8E735B] -mt-1">
+          Diseño &amp; Desarrollo Web &bull; Chile
+        </span>
+      </div>
     </a>
 
     <!-- Desktop Navigation -->

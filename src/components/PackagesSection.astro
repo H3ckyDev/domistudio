@@ -7,7 +7,6 @@ const phone2Clean = "56958986091"; // Héctor
 
 interface PackageItem {
   id: string;
-  number: string;
   name: string;
   price: string;
   billing: string;
@@ -23,7 +22,6 @@ interface PackageItem {
 const packages: PackageItem[] = [
   {
     id: "start",
-    number: "01",
     name: "Start",
     price: "$79.900",
     billing: "CLP",
@@ -50,11 +48,10 @@ const packages: PackageItem[] = [
       "Plazo estimado: 3–5 días hábiles",
       "Dominio y hosting no incluidos"
     ],
-    whatsappMessage: "Hola, me interesa consultar por el paquete 01. Start ($79.900)"
+    whatsappMessage: "Hola, me interesa consultar por el paquete Start ($79.900)"
   },
   {
     id: "basic",
-    number: "02",
     name: "BASIC",
     price: "$149.900",
     billing: "CLP",
@@ -80,11 +77,10 @@ const packages: PackageItem[] = [
       "Plazo estimado: 5–7 días hábiles",
       "Dominio y hosting no incluidos"
     ],
-    whatsappMessage: "Hola, me interesa consultar por el paquete 02. BASIC ($149.900)"
+    whatsappMessage: "Hola, me interesa consultar por el paquete BASIC ($149.900)"
   },
   {
     id: "pro",
-    number: "03",
     name: "PRO",
     price: "$399.900",
     billing: "CLP",
@@ -115,11 +111,10 @@ const packages: PackageItem[] = [
       "Plazo estimado: 10–15 días hábiles",
       "Dominio y hosting no incluidos"
     ],
-    whatsappMessage: "Hola, me interesa consultar por el paquete 03. PRO ($399.900)"
+    whatsappMessage: "Hola, me interesa consultar por el paquete PRO ($399.900)"
   },
   {
     id: "webcare",
-    number: "04",
     name: "WEB CARE",
     price: "$49.900",
     billing: "CLP / mes",
@@ -146,7 +141,7 @@ const packages: PackageItem[] = [
       "No incluye nuevas funcionalidades ni rediseños",
       "Hosting, dominio y licencias por separado"
     ],
-    whatsappMessage: "Hola, me interesa contratar el plan 04. WEB CARE ($49.900/mes)"
+    whatsappMessage: "Hola, me interesa contratar el plan WEB CARE ($49.900/mes)"
   }
 ];
 ---
@@ -190,28 +185,8 @@ const packages: PackageItem[] = [
       </div>
     </div>
 
-    <!-- Quick Package Tabs for Direct Access -->
-    <div class="reveal flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 max-w-4xl mx-auto">
-      {packages.map((pkg, idx) => (
-        <button
-          type="button"
-          data-tab-index={idx}
-          class={`package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border ${
-            idx === 0
-              ? 'bg-[#1C1613] text-[#FAF8F5] border-[#1C1613] shadow-sm'
-              : 'bg-[#FAF6F0] text-[#5D544C] border-[#E7DDD1] hover:bg-[#EAE0D3]/80 hover:text-[#1C1613]'
-          }`}
-        >
-          <span>{pkg.number}. {pkg.name}</span>
-          {pkg.featured && (
-            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-          )}
-        </button>
-      ))}
-    </div>
-
-    <!-- Carousel Viewport -->
-    <div class="reveal relative overflow-hidden max-w-6xl mx-auto py-2">
+    <!-- Carousel Viewport: Added horizontal & vertical padding so shake & shadows NEVER get cut off -->
+    <div class="reveal relative overflow-hidden max-w-6xl mx-auto px-3 sm:px-6 py-4">
       <!-- Carousel Track with Generous Width for Each Card -->
       <div
         id="package-carousel-track"
@@ -219,7 +194,7 @@ const packages: PackageItem[] = [
       >
         {packages.map((pkg, idx) => (
           <div
-            class="package-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 flex flex-col"
+            class="package-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 flex flex-col p-1.5"
             data-index={idx}
           >
             <div
@@ -233,13 +208,13 @@ const packages: PackageItem[] = [
               <div>
                 <div class="flex items-center justify-between gap-2 mb-4">
                   <span
-                    class={`text-xs font-extrabold tracking-widest uppercase px-3 py-1 rounded-full ${
+                    class={`text-xs font-extrabold tracking-widest uppercase px-3.5 py-1 rounded-full ${
                       pkg.featured
                         ? 'bg-white/10 text-[#DDCFC0]'
                         : 'bg-[#E5DACE] text-[#6E4E35]'
                     }`}
                   >
-                    {pkg.number}. {pkg.name}
+                    {pkg.name}
                   </span>
 
                   {pkg.featured && (
@@ -371,7 +346,7 @@ const packages: PackageItem[] = [
       </div>
     </div>
 
-    <!-- Carousel Progress Dots for Mobile & Tablets -->
+    <!-- Carousel Progress Dots for Navigation -->
     <div id="package-dots-container" class="flex items-center justify-center gap-2 mt-6">
       {packages.map((_, idx) => (
         <button
@@ -388,7 +363,7 @@ const packages: PackageItem[] = [
     <!-- Bottom Note & Hosting Clarification -->
     <div class="reveal mt-12 max-w-3xl mx-auto p-6 rounded-2xl bg-[#FAF6F0] border border-[#E7DDD1] text-center space-y-2">
       <p class="text-xs sm:text-sm text-[#5D544C] leading-relaxed">
-        <strong class="text-[#1C1613]">Transparencia:</strong> El dominio web (.cl o .com) y el hosting no están incluidos en los paquetes de desarrollo ni en el plan de soporte, pero te asesoramos paso a paso para adquirirlos directamente a tu nombre con total propiedad.
+        <strong class="text-[#1C1613]">Transparencia:</strong> El dominio web (.cl o .com) y el hosting no están incluidos en los paquetes de desarrollo ni en el plan de soporte, pero te asesoramos paso a paso para adquirirlos directamente a tu nombre en NIC Chile o el proveedor que prefieras con total propiedad.
       </p>
       <p class="text-xs text-[#655B53]">
         ¿Necesitas funcionalidades personalizadas, tienda online o integraciones especiales? 
@@ -407,7 +382,6 @@ const packages: PackageItem[] = [
     const slides = document.querySelectorAll('.package-slide');
     const prevBtn = document.getElementById('package-prev-btn');
     const nextBtn = document.getElementById('package-next-btn');
-    const tabButtons = document.querySelectorAll('.package-tab-btn');
     const dots = document.querySelectorAll('.package-dot');
 
     if (!track || slides.length === 0) return;
@@ -444,16 +418,6 @@ const packages: PackageItem[] = [
 
       track.style.transform = `translateX(-${offset}px)`;
 
-      // Update Tab Buttons styling
-      tabButtons.forEach((btn, idx) => {
-        const isCurrent = idx === currentIndex || (idx < currentIndex + getCardsPerView() && idx >= currentIndex);
-        if (idx === currentIndex) {
-          btn.className = 'package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border bg-[#1C1613] text-[#FAF8F5] border-[#1C1613] shadow-md scale-105';
-        } else {
-          btn.className = 'package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border bg-[#FAF6F0] text-[#5D544C] border-[#E7DDD1] hover:bg-[#EAE0D3]/80 hover:text-[#1C1613]';
-        }
-      });
-
       // Update dots
       dots.forEach((dot, idx) => {
         if (idx === currentIndex) {
@@ -483,14 +447,6 @@ const packages: PackageItem[] = [
 
     nextBtn?.addEventListener('click', () => {
       goToSlide(currentIndex + 1);
-    });
-
-    // Tab buttons clicks
-    tabButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const tabIdx = parseInt(btn.getAttribute('data-tab-index') || '0', 10);
-        goToSlide(tabIdx);
-      });
     });
 
     // Dots clicks
@@ -549,31 +505,32 @@ const packages: PackageItem[] = [
 </script>
 
 <style>
+  /* Shake de atención libre de desbordes: movimiento sutil sin cortes en los bordes */
   @keyframes attentionShake {
     0%, 68%, 100% {
-      transform: rotate(0deg) scale(1);
+      transform: translateX(0) rotate(0deg);
     }
     70% {
-      transform: rotate(-2deg) scale(1.015);
+      transform: translateX(-4px) rotate(-0.8deg);
     }
     73% {
-      transform: rotate(2.5deg) scale(1.02);
-      box-shadow: 0 30px 65px -12px rgba(28, 22, 19, 0.45), 0 0 28px rgba(201, 145, 111, 0.35);
+      transform: translateX(4px) rotate(1deg);
+      box-shadow: 0 25px 50px -12px rgba(28, 22, 19, 0.4), 0 0 22px rgba(201, 145, 111, 0.35);
     }
     76% {
-      transform: rotate(-2deg) scale(1.015);
+      transform: translateX(-3px) rotate(-0.8deg);
     }
     79% {
-      transform: rotate(1.8deg) scale(1.01);
+      transform: translateX(3px) rotate(0.6deg);
     }
     82% {
-      transform: rotate(-1deg) scale(1.005);
+      transform: translateX(-2px) rotate(-0.4deg);
     }
     85% {
-      transform: rotate(0.8deg) scale(1);
+      transform: translateX(1px) rotate(0.2deg);
     }
     88% {
-      transform: rotate(0deg) scale(1);
+      transform: translateX(0) rotate(0deg);
     }
   }
 
@@ -588,7 +545,7 @@ const packages: PackageItem[] = [
 
   .plan-shake {
     animation: attentionShake 4s ease-in-out infinite;
-    transform-origin: center 25%;
+    transform-origin: center center;
     will-change: transform, box-shadow;
   }
 

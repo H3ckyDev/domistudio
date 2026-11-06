@@ -8,6 +8,7 @@ interface Project {
   urlDisplay: string;
   urlHref: string;
   image: string;
+  imageWebp: string;
   imageAlt: string;
   ctaText: string;
 }
@@ -19,6 +20,7 @@ const projects: Project[] = [
     urlDisplay: "https://www.ramas.cl/",
     urlHref: "https://www.ramas.cl/",
     image: "/images/ramas.png",
+    imageWebp: "/images/ramas.webp",
     imageAlt: "Captura del sitio web ramas.cl",
     ctaText: "Visitar ramas.cl",
   },
@@ -28,6 +30,7 @@ const projects: Project[] = [
     urlDisplay: "https://fifacoinscolombia.com/",
     urlHref: "https://fifacoinscolombia.com/",
     image: "/images/fifacoins.png",
+    imageWebp: "/images/fifacoins.webp",
     imageAlt: "Captura del sitio web fifacoinscolombia.com",
     ctaText: "Visitar fifacoinscolombia.com",
   },
@@ -105,14 +108,20 @@ const projects: Project[] = [
                   </span>
                 </div>
 
-                <!-- Screenshot Image -->
+                <!-- Screenshot Image (Optimized Next-Gen WebP with responsive dimensions) -->
                 <div class="relative overflow-hidden rounded-b-xl bg-black aspect-[16/10] sm:aspect-[16/9]">
-                  <img
-                    src={project.image}
-                    alt={project.imageAlt}
-                    class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcset={project.imageWebp} type="image/webp" />
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width="1280"
+                      height="820"
+                      class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      loading={project.id === "ramas" ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  </picture>
                   <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-b-xl pointer-events-none"></div>
                 </div>
 

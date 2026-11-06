@@ -34,28 +34,85 @@ const {
       });
     </script>
 
-    <!-- SEO Meta Tags -->
+    <!-- SEO & Indexing Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content="diseño web chile, desarrollo web santiago, domistudios, domistudios cl, astro web, landing page profesional, diseño ui ux, soporte web" />
     <meta name="author" content="DomiStudios" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://domistudios.cl/" />
+    <meta name="theme-color" content="#F5EFE6" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://domistudios.cl/" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="https://domistudios.cl/images/ramas.png" />
+    <meta property="og:locale" content="es_CL" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://domistudios.cl/" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://domistudios.cl/images/ramas.png" />
 
-    <!-- Google Fonts Preconnect -->
+    <!-- Google Fonts Non-blocking Preconnect & Preload (Optimized for Lighthouse) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- Structured Data (JSON-LD Schema.org) for 100/100 Lighthouse SEO -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "DomiStudios",
+        "url": "https://domistudios.cl/",
+        "logo": "https://domistudios.cl/favicon.svg",
+        "image": "https://domistudios.cl/images/ramas.png",
+        "description": "Estudio de diseño web, desarrollo de alto rendimiento y soporte continuo para empresas en Chile.",
+        "telephone": "+56992870198",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CL",
+          "addressLocality": "Santiago"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+56992870198",
+            "contactType": "customer service",
+            "availableLanguage": "Spanish"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+56958986091",
+            "contactType": "technical support",
+            "availableLanguage": "Spanish"
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-[#F5EFE6] text-[#1C1613] antialiased selection:bg-[#1C1613] selection:text-[#FAF8F5] min-h-screen flex flex-col overflow-x-hidden">
     <slot />

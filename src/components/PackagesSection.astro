@@ -200,8 +200,8 @@ const packages: PackageItem[] = [
             <div
               class={`h-full relative rounded-[32px] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                 pkg.featured
-                  ? 'bg-[#1C1613] text-[#FAF8F5] border-2 border-[#8E735B]/70 shadow-[0_25px_60px_-15px_rgba(28,22,19,0.35)] plan-shake'
-                  : 'bg-[#FAF6F0] text-[#1C1613] border border-[#E7DDD1] shadow-[0_15px_40px_-15px_rgba(45,32,24,0.06)] hover:shadow-xl'
+                  ? 'bg-[#1C1613] text-[#FAF8F5] border-2 border-[#8E735B]/70 shadow-sm plan-shake'
+                  : 'bg-[#FAF6F0] text-[#1C1613] border border-[#E7DDD1] shadow-sm'
               }`}
             >
               {/* Top Info */}
@@ -516,7 +516,6 @@ const packages: PackageItem[] = [
     }
     73% {
       transform: translateX(4px) rotate(1deg);
-      box-shadow: 0 25px 50px -12px rgba(28, 22, 19, 0.4), 0 0 22px rgba(201, 145, 111, 0.35);
     }
     76% {
       transform: translateX(-3px) rotate(-0.8deg);
@@ -547,7 +546,7 @@ const packages: PackageItem[] = [
   .plan-shake {
     animation: attentionShake 4s ease-in-out infinite;
     transform-origin: center center;
-    will-change: transform, box-shadow;
+    will-change: transform;
   }
 
   /* Pausa el shake cuando el usuario interactúa o pasa el cursor encima */

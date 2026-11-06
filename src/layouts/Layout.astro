@@ -18,20 +18,44 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Forzar siempre Scroll To Top al recargar la página -->
+    <!-- Gestión inteligente de scroll: respeta anclas (#servicios, etc.) o inicia en el top si no hay hash -->
     <script is:inline>
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      window.scrollTo(0, 0);
-
-      window.addEventListener('beforeunload', function () {
-        window.scrollTo(0, 0);
-      });
-
-      window.addEventListener('load', function () {
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      });
+      (function () {
+        const hash = window.location.hash;
+        if (hash) {
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'auto';
+          }
+          function scrollToHash() {
+            try {
+              const target = document.querySelector(hash);
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            } catch (e) {
+              // Selector inválido seguro
+            }
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', scrollToHash);
+          } else {
+            scrollToHash();
+          }
+          window.addEventListener('load', scrollToHash);
+        } else {
+          // Si no hay hash, iniciar siempre en el top
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+          }
+          window.scrollTo(0, 0);
+          window.addEventListener('beforeunload', function () {
+            window.scrollTo(0, 0);
+          });
+          window.addEventListener('load', function () {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          });
+        }
+      })();
     </script>
 
     <!-- SEO & Indexing Meta Tags -->

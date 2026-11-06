@@ -346,17 +346,23 @@ const packages: PackageItem[] = [
       </div>
     </div>
 
-    <!-- Carousel Progress Dots for Navigation (Responsive: 2 on desktop, 3 on tablet, 4 on mobile) -->
-    <div id="package-dots-container" class="flex items-center justify-center gap-2 mt-6">
+    <!-- Carousel Progress Dots for Navigation (Accessible 44px touch targets) -->
+    <div id="package-dots-container" class="flex items-center justify-center gap-1 mt-6">
       {packages.map((_, idx) => (
         <button
           type="button"
           data-dot-index={idx}
-          class={`package-dot h-2 rounded-full transition-all duration-300 cursor-pointer ${
-            idx === 0 ? 'w-8 bg-[#1C1613]' : 'w-2 bg-[#D4C4B5] hover:bg-[#8E735B]'
-          } ${idx === 2 ? 'lg:hidden' : ''} ${idx === 3 ? 'md:hidden' : ''}`}
+          class={`package-dot min-w-[44px] min-h-[44px] p-2 flex items-center justify-center cursor-pointer group ${
+            idx === 2 ? 'lg:hidden' : ''
+          } ${idx === 3 ? 'md:hidden' : ''}`}
           aria-label={`Ir a la vista ${idx + 1}`}
-        ></button>
+        >
+          <span
+            class={`dot-pill h-2 rounded-full transition-all duration-300 ${
+              idx === 0 ? 'w-8 bg-[#1C1613]' : 'w-2 bg-[#D4C4B5] group-hover:bg-[#8E735B]'
+            }`}
+          ></span>
+        </button>
       ))}
     </div>
 
@@ -418,13 +424,14 @@ const packages: PackageItem[] = [
 
       track.style.transform = `translateX(-${offset}px)`;
 
-      // Update dots preserving responsive visibility (2 on desktop, 3 on tablet, 4 on mobile)
+      // Update dots preserving responsive visibility and accessible 44px touch target
       dots.forEach((dot, idx) => {
-        const responsiveHide = idx === 3 ? 'md:hidden' : idx === 2 ? 'lg:hidden' : '';
+        const pill = dot.querySelector('.dot-pill');
+        if (!pill) return;
         if (idx === currentIndex) {
-          dot.className = `package-dot h-2 rounded-full transition-all duration-300 cursor-pointer w-8 bg-[#1C1613] ${responsiveHide}`;
+          pill.className = 'dot-pill h-2 rounded-full transition-all duration-300 w-8 bg-[#1C1613]';
         } else {
-          dot.className = `package-dot h-2 rounded-full transition-all duration-300 cursor-pointer w-2 bg-[#D4C4B5] hover:bg-[#8E735B] ${responsiveHide}`;
+          pill.className = 'dot-pill h-2 rounded-full transition-all duration-300 w-2 bg-[#D4C4B5] group-hover:bg-[#8E735B]';
         }
       });
     }

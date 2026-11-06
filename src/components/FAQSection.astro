@@ -1,5 +1,7 @@
 ---
 // FAQSection.astro
+import { ChevronDown } from '@lucide/astro';
+
 const faqs = [
   {
     q: "¿Cómo empezamos a trabajar en mi sitio web?",
@@ -42,9 +44,7 @@ const faqs = [
               {faq.q}
             </h3>
             <span class="w-8 h-8 rounded-full bg-[#E5DACE] text-[#1C1613] flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-180">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
+              <ChevronDown class="w-4 h-4" stroke-width={2.5} />
             </span>
           </summary>
           <div class="mt-4 pt-4 border-t border-[#E8DED2]/80 text-sm sm:text-base text-[#655B53] leading-relaxed">

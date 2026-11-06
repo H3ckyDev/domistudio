@@ -1,5 +1,7 @@
 ---
 // Footer.astro
+import { Code2 } from '@lucide/astro';
+
 const year = new Date().getFullYear();
 const phone1 = "+56 9 9287 0198";
 const phone1Clean = "56992870198";
@@ -15,11 +17,7 @@ const phone2Clean = "56958986091";
       <div class="lg:col-span-2 space-y-4">
         <a href="#" class="inline-flex items-center gap-3">
           <div class="w-10 h-10 rounded-2xl bg-[#FAF8F5] text-[#1C1613] flex items-center justify-center font-bold text-lg shadow-md">
-            <svg class="w-5 h-5 text-[#1C1613]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m18 16 4-4-4-4"/>
-              <path d="m6 8-4 4 4 4"/>
-              <path d="m14.5 4-5 16"/>
-            </svg>
+            <Code2 class="w-5 h-5 text-[#1C1613]" stroke-width={2.5} />
           </div>
           <span class="text-2xl font-bold tracking-tight text-[#FAF8F5]">
             domistudios<span class="text-neutral-400 font-medium text-lg">.cl</span>

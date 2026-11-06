@@ -1,5 +1,6 @@
 ---
 // Header.astro
+import { Code2, ArrowRight, Menu } from '@lucide/astro';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-[#F5EFE6]/85 border-b border-[#E8DED2]/70" id="main-header">
@@ -7,11 +8,7 @@
     <!-- Brand Logo -->
     <a href="#" class="group flex items-center gap-3">
       <div class="w-10 h-10 rounded-2xl bg-[#1C1613] text-[#FAF8F5] flex items-center justify-center font-bold text-lg shadow-md transition-transform duration-300 group-hover:scale-105">
-        <svg class="w-5 h-5 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m18 16 4-4-4-4"/>
-          <path d="m6 8-4 4 4 4"/>
-          <path d="m14.5 4-5 16"/>
-        </svg>
+        <Code2 class="w-5 h-5 text-[#FAF8F5]" stroke-width={2.5} />
       </div>
       <div class="flex flex-col">
         <span class="text-xl font-bold tracking-tight text-[#1C1613] group-hover:text-black transition-colors">
@@ -49,9 +46,7 @@
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-sm font-medium hover:bg-[#332A24] transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02]"
       >
         <span>Contacto</span>
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+        <ArrowRight class="w-3.5 h-3.5" stroke-width={2} />
       </a>
     </div>
 
@@ -62,9 +57,7 @@
       class="md:hidden p-2 rounded-xl text-[#1C1613] hover:bg-[#EAE0D3] transition-colors"
       aria-label="Abrir menú"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-      </svg>
+      <Menu class="w-6 h-6" stroke-width={2} />
     </button>
   </div>
 
@@ -82,9 +75,7 @@
         class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1C1613] text-[#FAF8F5] text-sm font-medium hover:bg-[#332A24] mobile-link"
       >
         <span>Ir a Contacto</span>
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+        <ArrowRight class="w-4 h-4" stroke-width={2} />
       </a>
     </div>
   </div>

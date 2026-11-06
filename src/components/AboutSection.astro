@@ -1,5 +1,6 @@
 ---
 // AboutSection.astro
+import { ShieldCheck } from '@lucide/astro';
 ---
 
 <section id="nosotros" class="py-12 md:py-16 relative bg-[#F5EFE6] border-t border-[#E8DED2]/60 scroll-mt-24">
@@ -62,10 +63,7 @@
         <div class="relative bg-[#FAF6F0] rounded-[36px] p-8 sm:p-12 border border-[#E7DDD1] shadow-xl overflow-hidden space-y-6">
           
           <div class="w-12 h-12 rounded-2xl bg-[#1C1613] text-[#FAF8F5] flex items-center justify-center">
-            <svg class="w-6 h-6 text-[#FAF8F5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
+            <ShieldCheck class="w-6 h-6 text-[#FAF8F5]" stroke-width={2} />
           </div>
 
           <div class="space-y-3">

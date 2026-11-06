@@ -1,5 +1,7 @@
 ---
 // DesignCard.astro
+import { Sparkles, ArrowRight, ShoppingCart } from '@lucide/astro';
+
 interface Props {
   className?: string;
 }
@@ -17,10 +19,7 @@ const { className = "" } = Astro.props;
   <div class="relative z-10">
     <!-- Pill Badge -->
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs sm:text-sm font-medium tracking-wide shadow-sm">
-      <!-- Sparkle SVG -->
-      <svg class="w-3.5 h-3.5 text-[#2C241E]" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
-      </svg>
+      <Sparkles class="w-3.5 h-3.5 text-[#2C241E]" stroke-width={2.2} />
       <span>Diseño</span>
     </div>
 
@@ -42,10 +41,7 @@ const { className = "" } = Astro.props;
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all duration-300 shadow-sm hover:gap-3 group/btn"
       >
         <span>Ver más</span>
-        <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"/>
-          <path d="m12 5 7 7-7 7"/>
-        </svg>
+        <ArrowRight class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" stroke-width={2.2} />
       </a>
     </div>
   </div>
@@ -79,11 +75,7 @@ const { className = "" } = Astro.props;
               <span>Tienda</span>
               <span>Contacto</span>
               <!-- Mini Cart icon -->
-              <svg class="w-2.5 h-2.5 text-neutral-300 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="8" cy="21" r="1"/>
-                <circle cx="19" cy="21" r="1"/>
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-              </svg>
+              <ShoppingCart class="w-2.5 h-2.5 text-neutral-300 ml-1" stroke-width={2} />
             </div>
           </div>
 

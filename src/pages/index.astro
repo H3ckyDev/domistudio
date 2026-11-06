@@ -1,5 +1,6 @@
 ---
 // index.astro
+import { ArrowRight } from '@lucide/astro';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
@@ -96,7 +97,7 @@ const phone2Clean = "56958986091";
               <p class="text-xs font-bold text-[#1C1613]">Comunícate con Mariana</p>
               <p class="text-[10px] text-emerald-600 font-medium">WhatsApp directo</p>
             </div>
-            <span class="text-xs text-[#8E735B] group-hover/item:translate-x-1 transition-transform">&rarr;</span>
+            <ArrowRight class="w-3.5 h-3.5 text-[#8E735B] group-hover/item:translate-x-1 transition-transform" stroke-width={2} />
           </a>
 
           <a
@@ -109,7 +110,7 @@ const phone2Clean = "56958986091";
               <p class="text-xs font-bold text-[#1C1613]">Comunícate con Héctor</p>
               <p class="text-[10px] text-emerald-600 font-medium">WhatsApp directo</p>
             </div>
-            <span class="text-xs text-[#8E735B] group-hover/item:translate-x-1 transition-transform">&rarr;</span>
+            <ArrowRight class="w-3.5 h-3.5 text-[#8E735B] group-hover/item:translate-x-1 transition-transform" stroke-width={2} />
           </a>
         </div>
       </div>

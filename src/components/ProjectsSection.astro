@@ -3,73 +3,32 @@
 
 interface Project {
   id: string;
-  number: string;
-  tabLabel: string;
-  category: string;
   title: string;
-  country: string;
-  description: string;
   urlDisplay: string;
   urlHref: string;
-  isExternal: boolean;
-  status: string;
   image: string;
   imageAlt: string;
-  tags: string[];
   ctaText: string;
 }
 
 const projects: Project[] = [
   {
     id: "ramas",
-    number: "01",
-    tabLabel: "RAMAS (Vending)",
-    category: "Desarrollo Web • Vending Corporativo",
     title: "RAMAS | Máquinas Expendedoras para Empresas",
-    country: "Chile",
-    description: "Sitio web corporativo de alta velocidad desarrollado en Astro y Tailwind CSS para RAMAS. Plataforma optimizada para conversión B2B, catálogo interactivo de máquinas de café, snacks y bebidas para empresas en Chile.",
     urlDisplay: "https://www.ramas.cl/",
     urlHref: "https://www.ramas.cl/",
-    isExternal: true,
-    status: "En línea",
     image: "/images/ramas.png",
-    imageAlt: "Captura real del sitio web ramas.cl desarrollado por DomiStudios",
-    tags: ["Astro", "Tailwind CSS", "Carga instantánea", "Catálogo B2B"],
+    imageAlt: "Captura del sitio web ramas.cl",
     ctaText: "Visitar ramas.cl",
   },
   {
-    id: "kafi",
-    number: "02",
-    tabLabel: "Kafi Coffee (E-Commerce)",
-    category: "Diseño UI/UX • Tienda Online & Marca",
-    title: "Kafi | Café de Especialidad & Suscripciones",
-    country: "Chile",
-    description: "Diseño de experiencia digital y plataforma de venta para tostaduría artesanal en Santiago. Enfoque en suscripciones mensuales, selección de micro-lotes de origen y una estética visual cálida y envolvente.",
-    urlDisplay: "https://kafi-coffee.cl/",
-    urlHref: "#contacto",
-    isExternal: false,
-    status: "Caso de Estudio",
-    image: "/images/kafi.png",
-    imageAlt: "Diseño de interfaz y tienda digital para Kafi Coffee Roasters",
-    tags: ["UI / UX Design", "E-Commerce", "Branding Digital", "Microinteracciones"],
-    ctaText: "Cotizar proyecto similar",
-  },
-  {
-    id: "aura",
-    number: "03",
-    tabLabel: "Estudio Aura (Arquitectura)",
-    category: "Diseño Web • Arquitectura & Espacios",
-    title: "Estudio Aura | Arquitectura & Interiorismo",
-    country: "Chile",
-    description: "Identidad digital y portafolio interactivo para firma de arquitectura contemporánea en Chile. Estructurado para exhibir obras residenciales, memorias técnicas y destacar la materialidad y luz natural.",
-    urlDisplay: "https://estudioaura.cl/",
-    urlHref: "#contacto",
-    isExternal: false,
-    status: "Caso de Estudio",
-    image: "/images/aura.png",
-    imageAlt: "Portafolio web interactivo para firma de arquitectura Estudio Aura",
-    tags: ["Portafolio Editorial", "Performance", "Diseño Minimalista", "Mobile First"],
-    ctaText: "Cotizar proyecto similar",
+    id: "fifacoins",
+    title: "FIFA Coins Colombia | Plataforma de Monedas FC",
+    urlDisplay: "https://fifacoinscolombia.com/",
+    urlHref: "https://fifacoinscolombia.com/",
+    image: "/images/fifacoins.png",
+    imageAlt: "Captura del sitio web fifacoinscolombia.com",
+    ctaText: "Visitar fifacoinscolombia.com",
   },
 ];
 ---
@@ -77,48 +36,34 @@ const projects: Project[] = [
 <section id="proyectos" class="py-20 md:py-32 relative bg-[#F5EFE6] select-none" tabindex="0" aria-label="Sección de proyectos">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header with Controls -->
-    <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 max-w-5xl mx-auto">
-      <div class="space-y-3">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs font-semibold tracking-wide">
-          <span>Portafolio</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
-          Proyectos
-        </h2>
-        <p class="text-[#655B53] text-base max-w-xl">
-          Plataformas y experiencias digitales diseñadas a medida, con foco en rendimiento, estética y resultados.
-        </p>
-      </div>
+    <!-- Section Header with Arrows Only -->
+    <div class="reveal flex items-center justify-between gap-6 mb-8 sm:mb-10 max-w-5xl mx-auto">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+        Proyectos
+      </h2>
 
-      <!-- Navigation Arrow Controls + Slide Counter -->
-      <div class="flex items-center gap-4 shrink-0">
-        <div class="text-xs font-mono font-semibold tracking-wider text-[#7A6C60] bg-[#FAF6F0] px-3.5 py-2 rounded-full border border-[#E7DDD1]">
-          <span id="project-counter-current" class="text-[#1C1613] font-bold">01</span> / <span id="project-counter-total">03</span>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <button
-            id="project-prev-btn"
-            type="button"
-            aria-label="Proyecto anterior"
-            class="w-11 h-11 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-          <button
-            id="project-next-btn"
-            type="button"
-            aria-label="Siguiente proyecto"
-            class="w-11 h-11 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
-        </div>
+      <!-- Navigation Arrows Only -->
+      <div class="flex items-center gap-3">
+        <button
+          id="project-prev-btn"
+          type="button"
+          aria-label="Proyecto anterior"
+          class="w-12 h-12 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <button
+          id="project-next-btn"
+          type="button"
+          aria-label="Siguiente proyecto"
+          class="w-12 h-12 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
       </div>
     </div>
 
@@ -135,7 +80,7 @@ const projects: Project[] = [
             
             <div class="bg-[#FAF6F0] rounded-[36px] border border-[#E7DDD1] shadow-xl overflow-hidden flex flex-col justify-between group">
               
-              <!-- Real/Mockup Screenshot Container with Browser Frame -->
+              <!-- Screenshot Container with Browser Frame -->
               <div class="bg-[#1C1613] p-4 sm:p-6 border-b border-[#E8DED2]">
                 
                 <!-- Mock Browser Chrome Bar -->
@@ -149,8 +94,8 @@ const projects: Project[] = [
                   <!-- Browser URL Bar -->
                   <a
                     href={project.urlHref}
-                    target={project.isExternal ? "_blank" : undefined}
-                    rel={project.isExternal ? "noopener noreferrer" : undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="flex items-center gap-2 px-3 py-1 rounded-md bg-[#1C1613] text-[#FAF8F5]/80 hover:text-white text-[11px] font-mono border border-white/10 transition-colors"
                   >
                     <svg class="w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -158,17 +103,15 @@ const projects: Project[] = [
                       <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                     <span>{project.urlDisplay}</span>
-                    {project.isExternal && (
-                      <svg class="w-3 h-3 text-[#A99889]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        <polyline points="15 3 21 3 21 9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
-                      </svg>
-                    )}
+                    <svg class="w-3 h-3 text-[#A99889]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
                   </a>
 
                   <span class="text-[10px] text-emerald-400 font-medium hidden sm:inline">
-                    {project.status}
+                    En línea
                   </span>
                 </div>
 
@@ -185,58 +128,25 @@ const projects: Project[] = [
 
               </div>
 
-              <!-- Project Details -->
-              <div class="p-6 sm:p-8 space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <span class="text-xs uppercase font-bold tracking-wider text-[#8E735B]">
-                      {project.category}
-                    </span>
-                    <h3 class="text-2xl sm:text-3xl font-bold text-[#1C1613] mt-0.5">
-                      {project.title}
-                    </h3>
-                  </div>
-                  
-                  <span class="px-3 py-1 rounded-full bg-[#E5DACE] text-[#2C241E] text-xs font-semibold">
-                    {project.country}
-                  </span>
-                </div>
+              <!-- Project Footer: Title & Action Button Only (No tags, no description) -->
+              <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <h3 class="text-2xl sm:text-3xl font-bold text-[#1C1613]">
+                  {project.title}
+                </h3>
 
-                <p class="text-[#655B53] text-sm sm:text-base leading-relaxed max-w-3xl">
-                  {project.description}
-                </p>
-
-                <!-- Badges & Action Link -->
-                <div class="pt-4 border-t border-[#E8DED2]/80 flex flex-wrap items-center justify-between gap-4">
-                  <div class="flex flex-wrap gap-2 text-xs font-medium text-[#5D5047]">
-                    {project.tags.map((tag) => (
-                      <span class="px-2.5 py-1 rounded-md bg-[#F5EFE6] border border-[#E8DED2]">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={project.urlHref}
-                    target={project.isExternal ? "_blank" : undefined}
-                    rel={project.isExternal ? "noopener noreferrer" : undefined}
-                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all shadow-sm hover:scale-105 active:scale-95"
-                  >
-                    <span>{project.ctaText}</span>
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      {project.isExternal ? (
-                        <>
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                          <polyline points="15 3 21 3 21 9"/>
-                          <line x1="10" y1="14" x2="21" y2="3"/>
-                        </>
-                      ) : (
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      )}
-                    </svg>
-                  </a>
-                </div>
-
+                <a
+                  href={project.urlHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#1C1613] text-[#FAF8F5] text-xs sm:text-sm font-medium hover:bg-[#342A24] transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0"
+                >
+                  <span>{project.ctaText}</span>
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
               </div>
 
             </div>
@@ -245,24 +155,6 @@ const projects: Project[] = [
         ))}
       </div>
 
-    </div>
-
-    <!-- Carousel Tab Bar / Indicator Buttons -->
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-5xl mx-auto">
-      {projects.map((proj, idx) => (
-        <button
-          type="button"
-          data-slide-index={idx}
-          class={`project-tab-btn px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 border ${
-            idx === 0
-              ? "bg-[#1C1613] text-[#FAF8F5] border-[#1C1613] shadow-md"
-              : "bg-[#FAF6F0] text-[#7A6C60] border-transparent hover:bg-[#EAE1D5]"
-          }`}
-          aria-selected={idx === 0 ? "true" : "false"}
-        >
-          <span>{proj.number} &bull; {proj.tabLabel}</span>
-        </button>
-      ))}
     </div>
 
   </div>
@@ -274,14 +166,11 @@ const projects: Project[] = [
     const slides = document.querySelectorAll('.project-carousel-slide');
     const prevBtn = document.getElementById('project-prev-btn');
     const nextBtn = document.getElementById('project-next-btn');
-    const counterCurrent = document.getElementById('project-counter-current');
-    const tabBtns = document.querySelectorAll('.project-tab-btn');
 
     if (!track || slides.length === 0) return;
 
     let currentIndex = 0;
     const totalSlides = slides.length;
-    let autoPlayInterval: number | null = null;
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -296,47 +185,17 @@ const projects: Project[] = [
 
       // Smooth translation
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      // Update counter
-      if (counterCurrent) {
-        counterCurrent.textContent = String(currentIndex + 1).padStart(2, '0');
-      }
-
-      // Update tab buttons
-      tabBtns.forEach((btn, idx) => {
-        const isCurrent = idx === currentIndex;
-        btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
-        if (isCurrent) {
-          btn.classList.remove('bg-[#FAF6F0]', 'text-[#7A6C60]', 'border-transparent');
-          btn.classList.add('bg-[#1C1613]', 'text-[#FAF8F5]', 'border-[#1C1613]', 'shadow-md');
-        } else {
-          btn.classList.remove('bg-[#1C1613]', 'text-[#FAF8F5]', 'border-[#1C1613]', 'shadow-md');
-          btn.classList.add('bg-[#FAF6F0]', 'text-[#7A6C60]', 'border-transparent');
-        }
-      });
     }
 
     // Prev / Next button clicks
     prevBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       goToSlide(currentIndex - 1);
-      resetAutoPlay();
     });
 
     nextBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       goToSlide(currentIndex + 1);
-      resetAutoPlay();
-    });
-
-    // Tab button clicks
-    tabBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const slideIndex = parseInt(btn.getAttribute('data-slide-index') || '0', 10);
-        goToSlide(slideIndex);
-        resetAutoPlay();
-      });
     });
 
     // Touch Swipe support
@@ -357,7 +216,6 @@ const projects: Project[] = [
         } else {
           goToSlide(currentIndex - 1);
         }
-        resetAutoPlay();
       }
     }
 
@@ -366,41 +224,13 @@ const projects: Project[] = [
     section?.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
         goToSlide(currentIndex - 1);
-        resetAutoPlay();
       } else if (e.key === 'ArrowRight') {
         goToSlide(currentIndex + 1);
-        resetAutoPlay();
       }
     });
 
-    // Auto-advance every 8 seconds
-    function startAutoPlay() {
-      if (!autoPlayInterval) {
-        autoPlayInterval = window.setInterval(() => {
-          goToSlide(currentIndex + 1);
-        }, 8000);
-      }
-    }
-
-    function stopAutoPlay() {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-      }
-    }
-
-    function resetAutoPlay() {
-      stopAutoPlay();
-      startAutoPlay();
-    }
-
-    // Pause on hover
-    section?.addEventListener('mouseenter', stopAutoPlay);
-    section?.addEventListener('mouseleave', startAutoPlay);
-
     // Initial state
     goToSlide(0);
-    startAutoPlay();
   }
 
   if (document.readyState === 'loading') {

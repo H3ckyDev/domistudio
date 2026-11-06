@@ -1,6 +1,6 @@
 ---
 // PackagesSection.astro
-import { Check, Clock, ArrowRight, Info, Star } from '@lucide/astro';
+import { Check, Clock, ArrowRight, Info, Star, ChevronLeft, ChevronRight } from '@lucide/astro';
 
 const phone1Clean = "56992870198"; // Mariana
 const phone2Clean = "56958986091"; // Héctor
@@ -151,173 +151,237 @@ const packages: PackageItem[] = [
 ];
 ---
 
-<section id="paquetes" class="py-12 md:py-16 relative bg-[#F5EFE6] border-t border-[#E8DED2]/60 scroll-mt-24">
+<section id="paquetes" class="py-12 md:py-16 relative bg-[#F5EFE6] border-t border-[#E8DED2]/60 scroll-mt-24 select-none" tabindex="0" aria-label="Sección de paquetes">
   
   <!-- Subtle ambient decorative glow -->
-  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[#EADCCF]/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-6xl h-96 bg-[#EADCCF]/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header -->
-    <div class="reveal max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
-        Nuestros Paquetes
-      </h2>
+    <!-- Section Header with Arrows -->
+    <div class="reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 max-w-6xl mx-auto">
+      <div class="space-y-2 max-w-xl">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1613] tracking-tight leading-tight">
+          Nuestros Paquetes
+        </h2>
+        <p class="text-[#655B53] text-sm sm:text-base leading-relaxed">
+          Pensados para cada etapa de tu negocio, con entregas ágiles, diseño cuidado y comunicación directa.
+        </p>
+      </div>
 
-      <p class="text-[#655B53] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-        Pensados para cada etapa de tu negocio, con entregas ágiles, diseño cuidado y comunicación directa.
-      </p>
+      <!-- Navigation Arrows Only -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button
+          id="package-prev-btn"
+          type="button"
+          aria-label="Paquete anterior"
+          class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <ChevronLeft class="w-5 h-5" stroke-width={2.2} />
+        </button>
+        <button
+          id="package-next-btn"
+          type="button"
+          aria-label="Siguiente paquete"
+          class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#FAF6F0] border border-[#E7DDD1] text-[#1C1613] hover:bg-[#1C1613] hover:text-[#FAF8F5] transition-all duration-300 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <ChevronRight class="w-5 h-5" stroke-width={2.2} />
+        </button>
+      </div>
     </div>
 
-    <!-- Pricing Cards Grid: Responsive 4-Column Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
+    <!-- Quick Package Tabs for Direct Access -->
+    <div class="reveal flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 max-w-4xl mx-auto">
       {packages.map((pkg, idx) => (
-        <div class={`h-full ${pkg.featured ? 'xl:-translate-y-2.5' : ''}`}>
+        <button
+          type="button"
+          data-tab-index={idx}
+          class={`package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border ${
+            idx === 0
+              ? 'bg-[#1C1613] text-[#FAF8F5] border-[#1C1613] shadow-sm'
+              : 'bg-[#FAF6F0] text-[#5D544C] border-[#E7DDD1] hover:bg-[#EAE0D3]/80 hover:text-[#1C1613]'
+          }`}
+        >
+          <span>{pkg.number}. {pkg.name}</span>
+          {pkg.featured && (
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          )}
+        </button>
+      ))}
+    </div>
+
+    <!-- Carousel Viewport -->
+    <div class="reveal relative overflow-hidden max-w-6xl mx-auto py-2">
+      <!-- Carousel Track with Generous Width for Each Card -->
+      <div
+        id="package-carousel-track"
+        class="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform gap-6 cursor-grab active:cursor-grabbing"
+      >
+        {packages.map((pkg, idx) => (
           <div
-            class={`reveal delay-${(idx + 1) * 100} h-full relative rounded-[32px] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
-              pkg.featured
-                ? 'bg-[#1C1613] text-[#FAF8F5] border-2 border-[#8E735B]/70 shadow-[0_25px_60px_-15px_rgba(28,22,19,0.35)] plan-shake'
-                : 'bg-[#FAF6F0] text-[#1C1613] border border-[#E7DDD1] shadow-[0_15px_40px_-15px_rgba(45,32,24,0.06)] hover:shadow-xl hover:-translate-y-1'
-            }`}
+            class="package-slide w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 flex flex-col"
+            data-index={idx}
           >
-            {/* Top Info */}
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span
-                  class={`text-xs font-extrabold tracking-widest uppercase px-3 py-1 rounded-full ${
+            <div
+              class={`h-full relative rounded-[32px] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
+                pkg.featured
+                  ? 'bg-[#1C1613] text-[#FAF8F5] border-2 border-[#8E735B]/70 shadow-[0_25px_60px_-15px_rgba(28,22,19,0.35)] plan-shake'
+                  : 'bg-[#FAF6F0] text-[#1C1613] border border-[#E7DDD1] shadow-[0_15px_40px_-15px_rgba(45,32,24,0.06)] hover:shadow-xl'
+              }`}
+            >
+              {/* Top Info */}
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span
+                    class={`text-xs font-extrabold tracking-widest uppercase px-3 py-1 rounded-full ${
+                      pkg.featured
+                        ? 'bg-white/10 text-[#DDCFC0]'
+                        : 'bg-[#E5DACE] text-[#6E4E35]'
+                    }`}
+                  >
+                    {pkg.number}. {pkg.name}
+                  </span>
+
+                  {pkg.featured && (
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] text-[#1C1613] text-xs font-bold tracking-wide shadow-md">
+                      <Star class="w-3.5 h-3.5 text-[#8E735B] fill-current star-pulse" stroke-width={2} />
+                      <span>Más recomendado</span>
+                    </span>
+                  )}
+                </div>
+
+                <!-- Price -->
+                <div class="flex items-baseline gap-2 mt-2">
+                  <span class={`text-4xl sm:text-5xl font-black tracking-tight ${pkg.featured ? 'text-[#FAF8F5]' : 'text-[#1C1613]'}`}>
+                    {pkg.price}
+                  </span>
+                  <span class={`text-xs font-semibold uppercase tracking-wider ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#7D736A]'}`}>
+                    {pkg.billing}
+                  </span>
+                </div>
+
+                <!-- Tagline & Description -->
+                <h3 class={`text-base font-bold mt-3 leading-snug ${pkg.featured ? 'text-[#FAF8F5]' : 'text-[#1C1613]'}`}>
+                  {pkg.tagline}
+                </h3>
+
+                <p class={`text-xs sm:text-sm leading-relaxed mt-2 ${pkg.featured ? 'text-[#DDCFC0]' : 'text-[#655B53]'}`}>
+                  {pkg.description}
+                </p>
+
+                <!-- Timeframe / Modality Badge -->
+                <div
+                  class={`mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold ${
                     pkg.featured
-                      ? 'bg-white/10 text-[#DDCFC0]'
-                      : 'bg-[#E5DACE] text-[#6E4E35]'
+                      ? 'bg-white/10 text-[#FAF8F5] border border-white/10'
+                      : 'bg-[#EAE0D3]/70 text-[#4D4238] border border-[#E0D3C5]'
                   }`}
                 >
-                  {pkg.number}. {pkg.name}
-                </span>
+                  <Clock class="w-3.5 h-3.5 text-[#8E735B] shrink-0" stroke-width={2.2} />
+                  <span>Plazo / Modalidad: <strong>{pkg.timeframe}</strong></span>
+                </div>
 
-                {pkg.featured && (
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF8F5] text-[#1C1613] text-xs font-bold tracking-wide shadow-md">
-                    <Star class="w-3.5 h-3.5 text-[#8E735B] fill-current star-pulse" stroke-width={2} />
-                    <span>Más recomendado</span>
-                  </span>
-                )}
+                <!-- Divider -->
+                <div class={`h-px my-6 ${pkg.featured ? 'bg-white/15' : 'bg-[#E8DED2]'}`}></div>
+
+                <!-- What's included list -->
+                <div class="space-y-3">
+                  <p class={`text-xs font-extrabold uppercase tracking-wider ${pkg.featured ? 'text-[#DDCFC0]' : 'text-[#6E4E35]'}`}>
+                    Incluye:
+                  </p>
+                  <ul class="space-y-2.5">
+                    {pkg.includes.map((item) => (
+                      <li class="flex items-start gap-2.5 text-xs sm:text-[13px] leading-snug">
+                        <span
+                          class={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                            pkg.featured
+                              ? 'bg-emerald-400/20 text-emerald-400'
+                              : 'bg-emerald-500/15 text-emerald-700'
+                          }`}
+                        >
+                          <Check class="w-3 h-3" stroke-width={3} />
+                        </span>
+                        <span class={pkg.featured ? 'text-[#FAF8F5]' : 'text-[#3E342D]'}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Conditions & details -->
+                <div class={`mt-6 pt-5 border-t ${pkg.featured ? 'border-white/10' : 'border-[#E8DED2]/80'}`}>
+                  <p class={`text-[11px] font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5 ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#6E4E35]'}`}>
+                    <Info class="w-3.5 h-3.5" stroke-width={2} />
+                    <span>Condiciones:</span>
+                  </p>
+                  <ul class="space-y-1.5">
+                    {pkg.conditions.map((cond) => (
+                      <li class={`text-xs flex items-start gap-2 leading-tight ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#655B53]'}`}>
+                        <span class="text-[#8E735B] font-bold shrink-0">&bull;</span>
+                        <span>{cond}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <!-- Price -->
-              <div class="flex items-baseline gap-2 mt-2">
-                <span class={`text-3xl sm:text-4xl 2xl:text-5xl font-black tracking-tight ${pkg.featured ? 'text-[#FAF8F5]' : 'text-[#1C1613]'}`}>
-                  {pkg.price}
-                </span>
-                <span class={`text-xs font-semibold uppercase tracking-wider ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#7D736A]'}`}>
-                  {pkg.billing}
-                </span>
-              </div>
-
-              <!-- Tagline & Description -->
-              <h3 class={`text-base font-bold mt-3 leading-snug ${pkg.featured ? 'text-[#FAF8F5]' : 'text-[#1C1613]'}`}>
-                {pkg.tagline}
-              </h3>
-
-              <p class={`text-xs sm:text-sm leading-relaxed mt-2 ${pkg.featured ? 'text-[#DDCFC0]' : 'text-[#655B53]'}`}>
-                {pkg.description}
-              </p>
-
-              <!-- Timeframe / Modality Badge -->
-              <div
-                class={`mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold ${
-                  pkg.featured
-                    ? 'bg-white/10 text-[#FAF8F5] border border-white/10'
-                    : 'bg-[#EAE0D3]/70 text-[#4D4238] border border-[#E0D3C5]'
-                }`}
-              >
-                <Clock class="w-3.5 h-3.5 text-[#8E735B] shrink-0" stroke-width={2.2} />
-                <span>Modalidad / Plazo: <strong>{pkg.timeframe}</strong></span>
-              </div>
-
-              <!-- Divider -->
-              <div class={`h-px my-6 ${pkg.featured ? 'bg-white/15' : 'bg-[#E8DED2]'}`}></div>
-
-              <!-- What's included list -->
-              <div class="space-y-3">
-                <p class={`text-xs font-extrabold uppercase tracking-wider ${pkg.featured ? 'text-[#DDCFC0]' : 'text-[#6E4E35]'}`}>
-                  Incluye:
-                </p>
-                <ul class="space-y-2.5">
-                  {pkg.includes.map((item) => (
-                    <li class="flex items-start gap-2.5 text-xs sm:text-[13px] leading-snug">
-                      <span
-                        class={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                          pkg.featured
-                            ? 'bg-emerald-400/20 text-emerald-400'
-                            : 'bg-emerald-500/15 text-emerald-700'
-                        }`}
-                      >
-                        <Check class="w-3 h-3" stroke-width={3} />
-                      </span>
-                      <span class={pkg.featured ? 'text-[#FAF8F5]' : 'text-[#3E342D]'}>
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <!-- Conditions & details -->
-              <div class={`mt-6 pt-5 border-t ${pkg.featured ? 'border-white/10' : 'border-[#E8DED2]/80'}`}>
-                <p class={`text-[11px] font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5 ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#6E4E35]'}`}>
-                  <Info class="w-3.5 h-3.5" stroke-width={2} />
-                  <span>Condiciones:</span>
-                </p>
-                <ul class="space-y-1.5">
-                  {pkg.conditions.map((cond) => (
-                    <li class={`text-xs flex items-start gap-2 leading-tight ${pkg.featured ? 'text-[#C7B49E]' : 'text-[#655B53]'}`}>
-                      <span class="text-[#8E735B] font-bold shrink-0">&bull;</span>
-                      <span>{cond}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <!-- Bottom CTA Button & Line Options -->
-            <div class="mt-8 pt-4">
-              <a
-                href={`https://wa.me/${phone1Clean}?text=${encodeURIComponent(pkg.whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={`w-full py-3.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 shadow-sm group/btn ${
-                  pkg.featured
-                    ? 'bg-[#FAF8F5] text-[#1C1613] hover:bg-white hover:shadow-lg hover:scale-[1.02]'
-                    : 'bg-[#1C1613] text-[#FAF8F5] hover:bg-[#342A24] hover:shadow-md hover:scale-[1.01]'
-                }`}
-                aria-label={`Elegir paquete ${pkg.name}`}
-              >
-                <span>Elegir {pkg.name}</span>
-                <ArrowRight class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" stroke-width={2.2} />
-              </a>
-
-              <!-- Direct Contact Selection (Mariana / Héctor) -->
-              <div class="mt-3 flex items-center justify-center gap-2 text-[11px]">
-                <span class={pkg.featured ? 'text-[#A99889]' : 'text-[#7D736A]'}>Escríbele a:</span>
+              <!-- Bottom CTA Button & Line Options -->
+              <div class="mt-8 pt-4">
                 <a
-                  href={`https://wa.me/${phone1Clean}?text=${encodeURIComponent(pkg.whatsappMessage + ' (Hola Mariana)')}`}
+                  href={`https://wa.me/${phone1Clean}?text=${encodeURIComponent(pkg.whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class={`font-semibold underline transition-colors ${pkg.featured ? 'text-[#FAF8F5] hover:text-[#DDCFC0]' : 'text-[#1C1613] hover:text-[#8E735B]'}`}
+                  class={`w-full py-3.5 px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 shadow-sm group/btn ${
+                    pkg.featured
+                      ? 'bg-[#FAF8F5] text-[#1C1613] hover:bg-white hover:shadow-lg hover:scale-[1.02]'
+                      : 'bg-[#1C1613] text-[#FAF8F5] hover:bg-[#342A24] hover:shadow-md hover:scale-[1.01]'
+                  }`}
+                  aria-label={`Elegir paquete ${pkg.name}`}
                 >
-                  Mariana
+                  <span>Elegir {pkg.name}</span>
+                  <ArrowRight class="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" stroke-width={2.2} />
                 </a>
-                <span class={pkg.featured ? 'text-white/20' : 'text-[#D4C4B5]'}>|</span>
-                <a
-                  href={`https://wa.me/${phone2Clean}?text=${encodeURIComponent(pkg.whatsappMessage + ' (Hola Héctor)')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class={`font-semibold underline transition-colors ${pkg.featured ? 'text-[#FAF8F5] hover:text-[#DDCFC0]' : 'text-[#1C1613] hover:text-[#8E735B]'}`}
-                >
-                  Héctor
-                </a>
+
+                <!-- Direct Contact Selection (Mariana / Héctor) -->
+                <div class="mt-3 flex items-center justify-center gap-2 text-[11px]">
+                  <span class={pkg.featured ? 'text-[#A99889]' : 'text-[#7D736A]'}>Escríbele a:</span>
+                  <a
+                    href={`https://wa.me/${phone1Clean}?text=${encodeURIComponent(pkg.whatsappMessage + ' (Hola Mariana)')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`font-semibold underline transition-colors ${pkg.featured ? 'text-[#FAF8F5] hover:text-[#DDCFC0]' : 'text-[#1C1613] hover:text-[#8E735B]'}`}
+                  >
+                    Mariana
+                  </a>
+                  <span class={pkg.featured ? 'text-white/20' : 'text-[#D4C4B5]'}>|</span>
+                  <a
+                    href={`https://wa.me/${phone2Clean}?text=${encodeURIComponent(pkg.whatsappMessage + ' (Hola Héctor)')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`font-semibold underline transition-colors ${pkg.featured ? 'text-[#FAF8F5] hover:text-[#DDCFC0]' : 'text-[#1C1613] hover:text-[#8E735B]'}`}
+                  >
+                    Héctor
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Carousel Progress Dots for Mobile & Tablets -->
+    <div id="package-dots-container" class="flex items-center justify-center gap-2 mt-6">
+      {packages.map((_, idx) => (
+        <button
+          type="button"
+          data-dot-index={idx}
+          class={`package-dot h-2 rounded-full transition-all duration-300 cursor-pointer ${
+            idx === 0 ? 'w-8 bg-[#1C1613]' : 'w-2 bg-[#D4C4B5] hover:bg-[#8E735B]'
+          }`}
+          aria-label={`Ir al paquete ${idx + 1}`}
+        ></button>
       ))}
     </div>
 
@@ -336,6 +400,153 @@ const packages: PackageItem[] = [
 
   </div>
 </section>
+
+<script>
+  function initPackagesCarousel() {
+    const track = document.getElementById('package-carousel-track');
+    const slides = document.querySelectorAll('.package-slide');
+    const prevBtn = document.getElementById('package-prev-btn');
+    const nextBtn = document.getElementById('package-next-btn');
+    const tabButtons = document.querySelectorAll('.package-tab-btn');
+    const dots = document.querySelectorAll('.package-dot');
+
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function getCardsPerView() {
+      const width = window.innerWidth;
+      if (width >= 1024) return 3;
+      if (width >= 768) return 2;
+      return 1;
+    }
+
+    function getMaxIndex() {
+      const perView = getCardsPerView();
+      return Math.max(0, totalSlides - perView);
+    }
+
+    function updateCarousel() {
+      const maxIndex = getMaxIndex();
+      if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
+      }
+
+      const firstSlide = slides[0] as HTMLElement;
+      if (!firstSlide) return;
+
+      const gap = 24; // 24px gap between slides (gap-6)
+      const slideWidth = firstSlide.offsetWidth + gap;
+      const offset = currentIndex * slideWidth;
+
+      track.style.transform = `translateX(-${offset}px)`;
+
+      // Update Tab Buttons styling
+      tabButtons.forEach((btn, idx) => {
+        const isCurrent = idx === currentIndex || (idx < currentIndex + getCardsPerView() && idx >= currentIndex);
+        if (idx === currentIndex) {
+          btn.className = 'package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border bg-[#1C1613] text-[#FAF8F5] border-[#1C1613] shadow-md scale-105';
+        } else {
+          btn.className = 'package-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer border bg-[#FAF6F0] text-[#5D544C] border-[#E7DDD1] hover:bg-[#EAE0D3]/80 hover:text-[#1C1613]';
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.className = 'package-dot h-2 rounded-full transition-all duration-300 cursor-pointer w-8 bg-[#1C1613]';
+        } else {
+          dot.className = 'package-dot h-2 rounded-full transition-all duration-300 cursor-pointer w-2 bg-[#D4C4B5] hover:bg-[#8E735B]';
+        }
+      });
+    }
+
+    function goToSlide(index: number) {
+      const maxIndex = getMaxIndex();
+      if (index > maxIndex) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = maxIndex;
+      } else {
+        currentIndex = index;
+      }
+      updateCarousel();
+    }
+
+    // Prev / Next button clicks
+    prevBtn?.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+    });
+
+    // Tab buttons clicks
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tabIdx = parseInt(btn.getAttribute('data-tab-index') || '0', 10);
+        goToSlide(tabIdx);
+      });
+    });
+
+    // Dots clicks
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const dotIdx = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
+        goToSlide(dotIdx);
+      });
+    });
+
+    // Touch Swipe gesture support
+    track.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(currentIndex - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Keyboard navigation when section is focused
+    const section = document.getElementById('paquetes');
+    section?.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        goToSlide(currentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        goToSlide(currentIndex + 1);
+      }
+    });
+
+    // Responsive update on resize
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        updateCarousel();
+      }, 100);
+    });
+
+    // Initial render
+    updateCarousel();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPackagesCarousel);
+  } else {
+    initPackagesCarousel();
+  }
+</script>
 
 <style>
   @keyframes attentionShake {

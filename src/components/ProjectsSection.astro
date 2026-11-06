@@ -9,6 +9,7 @@ interface Project {
   urlHref: string;
   image: string;
   imageWebp: string;
+  imageWebp640: string;
   imageAlt: string;
   ctaText: string;
 }
@@ -21,6 +22,7 @@ const projects: Project[] = [
     urlHref: "https://www.ramas.cl/",
     image: "/images/ramas.png",
     imageWebp: "/images/ramas.webp",
+    imageWebp640: "/images/ramas-640.webp",
     imageAlt: "Captura del sitio web ramas.cl",
     ctaText: "Visitar ramas.cl",
   },
@@ -31,6 +33,7 @@ const projects: Project[] = [
     urlHref: "https://fifacoinscolombia.com/",
     image: "/images/fifacoins.png",
     imageWebp: "/images/fifacoins.webp",
+    imageWebp640: "/images/fifacoins-640.webp",
     imageAlt: "Captura del sitio web fifacoinscolombia.com",
     ctaText: "Visitar fifacoinscolombia.com",
   },
@@ -108,17 +111,24 @@ const projects: Project[] = [
                   </span>
                 </div>
 
-                <!-- Screenshot Image (Optimized Next-Gen WebP with responsive dimensions) -->
+                <!-- Screenshot Image (Optimized Next-Gen Responsive WebP) -->
                 <div class="relative overflow-hidden rounded-b-xl bg-black aspect-[16/10] sm:aspect-[16/9]">
                   <picture>
-                    <source srcset={project.imageWebp} type="image/webp" />
+                    <source
+                      type="image/webp"
+                      srcset={`${project.imageWebp640} 640w, ${project.imageWebp} 1280w`}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 700px, 920px"
+                    />
                     <img
-                      src={project.image}
+                      src={project.imageWebp}
+                      srcset={`${project.imageWebp640} 640w, ${project.imageWebp} 1280w`}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 700px, 920px"
                       alt={project.imageAlt}
                       width="1280"
                       height="820"
                       class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                       loading={project.id === "ramas" ? "eager" : "lazy"}
+                      fetchpriority={project.id === "ramas" ? "high" : "auto"}
                       decoding="async"
                     />
                   </picture>

@@ -11,8 +11,8 @@ import { ArrowRight, ArrowUpRight } from '@lucide/astro';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto text-center space-y-8">
       
-      <!-- Main Headline with Live Handwriting Typewriter Effect -->
-      <h1 class="reveal delay-100 text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1C1613] tracking-tight leading-[1.18]">
+      <!-- Main Headline with Live Handwriting Typewriter Effect (Immediate paint for 0ms LCP delay) -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#1C1613] tracking-tight leading-[1.18]">
         Creamos experiencias digitales <br class="hidden sm:inline" />
         <span class="relative inline-flex items-baseline justify-center -rotate-2 mx-1 sm:mx-2 my-1 min-h-[1.15em] whitespace-nowrap">
           <!-- Handwritten text span in Caveat font -->
@@ -48,12 +48,12 @@ import { ArrowRight, ArrowUpRight } from '@lucide/astro';
       </h1>
 
       <!-- Supporting description -->
-      <p class="reveal delay-200 text-lg sm:text-xl text-[#5D544C] max-w-2xl mx-auto leading-relaxed font-normal">
+      <p class="text-lg sm:text-xl text-[#5D544C] max-w-2xl mx-auto leading-relaxed font-normal">
         Desarrollamos sitios web pensados para conectar con tu audiencia y proyectar el verdadero valor de tu marca.
       </p>
 
       <!-- Action buttons -->
-      <div class="reveal delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
         <a
           href="#servicios"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#1C1613] text-[#FAF8F5] text-base font-medium hover:bg-[#342A24] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-3 group"
@@ -92,11 +92,8 @@ import { ArrowRight, ArrowUpRight } from '@lucide/astro';
       ];
 
       let phraseIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-
-      // Clear text so user immediately sees the handwriting animation begin!
-      textEl.textContent = '';
+      let charIndex = phrases[0].length;
+      let isDeleting = true;
 
       function tick() {
         const currentPhrase = phrases[phraseIndex];
@@ -116,7 +113,7 @@ import { ArrowRight, ArrowUpRight } from '@lucide/astro';
 
         // When the whole phrase has been written out
         if (!isDeleting && charIndex === currentPhrase.length) {
-          speed = 2000; // Pause so the user can read the phrase
+          speed = 2200; // Pause so the user can read the phrase
           isDeleting = true;
         } 
         // When the phrase has been completely erased
@@ -129,8 +126,9 @@ import { ArrowRight, ArrowUpRight } from '@lucide/astro';
         setTimeout(tick, speed);
       }
 
-      // Start writing after 400ms
-      setTimeout(tick, 400);
+      // First phrase is rendered immediately in HTML for 0ms LCP delay.
+      // After 2.2s, begin smooth deletion and cycling to next phrase.
+      setTimeout(tick, 2200);
     }
 
     if (document.readyState === 'loading') {
